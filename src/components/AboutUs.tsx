@@ -19,7 +19,7 @@ export function AboutUs({ lang }: AboutUsProps) {
       email: "anas.say3d@gmail.com",
       avatarSvg: (
         <img 
-          src="WhatsApp Image 2026-07-17 at 10.31.02 PM.jpeg" 
+          src="/WhatsApp Image 2026-07-17 at 10.31.02 PM.jpeg" 
           className="w-full h-full object-cover select-none pointer-events-none" 
           alt="Anas Portrait" 
           referrerPolicy="no-referrer"
@@ -36,7 +36,7 @@ export function AboutUs({ lang }: AboutUsProps) {
       email: "modatherossama1@gmail.com",
       avatarSvg: (
         <img 
-          src="WhatsApp Image 2026-07-17 at 10.31.01 PM.jpeg"
+          src="/WhatsApp Image 2026-07-17 at 10.31.01 PM.jpeg"
           className="w-full h-full object-cover select-none pointer-events-none" 
           alt="Modather Portrait" 
           referrerPolicy="no-referrer"
@@ -50,7 +50,7 @@ export function AboutUs({ lang }: AboutUsProps) {
       name: "Atlantic International Corporation",
       logo: (
         <img 
-          src="Screenshot 2026-07-17 235343.png" 
+          src="/Screenshot 2026-07-17 235343.png" 
           className="w-full h-full object-cover select-none pointer-events-none" 
           alt="Atlantic International Corporation Logo" 
           referrerPolicy="no-referrer"
@@ -66,7 +66,7 @@ export function AboutUs({ lang }: AboutUsProps) {
       name: "Tarek Helal Co.",
       logo: (
         <img 
-          src="WhatsApp Image 2026-07-17 at 10.31.27 PM.jpeg" 
+          src="/WhatsApp Image 2026-07-17 at 10.31.27 PM.jpeg" 
           className="w-full h-full object-cover select-none pointer-events-none" 
           alt="Tarek Helal Co. Logo" 
           referrerPolicy="no-referrer"
