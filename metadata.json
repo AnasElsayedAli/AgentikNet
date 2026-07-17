@@ -1,0 +1,6 @@
+{
+  "name": "Agentik Net",
+  "description": "Premium enterprise-grade website for Agentik Net, specializing in custom software development, AI integration, AI agents, and business automation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
