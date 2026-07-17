@@ -36,7 +36,7 @@ export function AboutUs({ lang }: AboutUsProps) {
       email: "modatherossama1@gmail.com",
       avatarSvg: (
         <img 
-          src="/WhatsApp Image 2026-07-17 at 10.31.01 PM.jpeg"
+          src="/WhatsApp Image 2026-07-18 at 2.48.52 AM.jpeg"
           className="w-full h-full object-cover select-none pointer-events-none" 
           alt="Modather Portrait" 
           referrerPolicy="no-referrer"
