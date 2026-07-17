@@ -44,13 +44,14 @@ export function Navbar({ lang, onLanguageChange, onOpenConsultation, onNavigateT
         <button
           onClick={() => onNavigateTo("hero")}
           className="flex items-center gap-2.5 group cursor-pointer text-start"
+          dir="ltr"
           id="navbar-logo-btn"
         >
           <div className="relative shrink-0 flex items-center justify-center">
             <Logo size={42} className="transition-transform duration-500 group-hover:rotate-12 filter drop-shadow-[0_0_8px_rgba(0,191,255,0.3)]" />
           </div>
           <div className="flex flex-col">
-            <span className="font-display font-bold text-lg tracking-wider text-white flex items-center gap-1.5">
+            <span className="font-display font-bold text-lg tracking-wider text-white flex items-center gap-1.5" dir="ltr">
               AGENTIK <span className="text-[#00BFFF] font-light">NET</span>
             </span>
             <span className="text-[9px] font-mono tracking-widest text-[#8A2BE2] font-semibold -mt-1 group-hover:text-white transition-colors">
