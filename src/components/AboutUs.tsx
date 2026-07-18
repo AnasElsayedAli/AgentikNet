@@ -66,7 +66,7 @@ export function AboutUs({ lang }: AboutUsProps) {
       name: "Tarek Helal Co.",
       logo: (
         <img 
-          src="/WhatsApp Image 2026-07-17 at 10.31.27 PM.jpeg" 
+          src="/logo.png" 
           className="w-full h-full object-cover select-none pointer-events-none" 
           alt="Tarek Helal Co. Logo" 
           referrerPolicy="no-referrer"
