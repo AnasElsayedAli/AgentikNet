@@ -4,8 +4,10 @@ Agentik Net is a software engineering studio focused on premium web development,
 
 ## Brand aliases
 - Agentik Net
-- Agentic Net
+- AgentikNet
 - Ageniknet
+- ايجنتك نت 
+- شركه ايجنتك 
 
 ## Services
 - Custom web app development

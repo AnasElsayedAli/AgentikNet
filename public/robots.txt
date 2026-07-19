@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://agentiknet.com/sitemap.xml
+Sitemap: https://www.agentiknet.com/sitemap.xml
 
 # AI crawlers that respect robots.txt can access the full site.
 User-agent: GPTBot
