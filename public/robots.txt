@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agentiknet.com/sitemap.xml
+
+# AI crawlers that respect robots.txt can access the full site.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /

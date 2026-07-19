@@ -18,10 +18,69 @@ export default function App() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [inquiryServiceContext, setInquiryServiceContext] = useState("");
 
+  const seoByLang = {
+    ar: {
+      title: "Agentik Net | تطوير مواقع ودمج ذكاء اصطناعي وأتمتة أعمال",
+      description:
+        "Agentik Net تبني مواقع ويب احترافية وتكاملات ذكاء اصطناعي وأنظمة أتمتة مخصصة للشركات في مصر والإمارات.",
+      ogLocale: "ar_AR",
+    },
+    en: {
+      title: "Agentik Net | AI Solutions, Web Development, and Automation",
+      description:
+        "Agentik Net delivers custom web development, AI agent integration, backend engineering, and workflow automation for businesses in Egypt and UAE.",
+      ogLocale: "en_US",
+    },
+  } as const;
+
+  const upsertMeta = (attr: "name" | "property", key: string, value: string) => {
+    let meta = document.head.querySelector(`meta[${attr}="${key}"]`);
+    if (!meta) {
+      meta = document.createElement("meta");
+      meta.setAttribute(attr, key);
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute("content", value);
+  };
+
+  const upsertLink = (rel: string, href: string, hreflang?: string) => {
+    const selector = hreflang
+      ? `link[rel="${rel}"][hreflang="${hreflang}"]`
+      : `link[rel="${rel}"]:not([hreflang])`;
+
+    let link = document.head.querySelector(selector);
+    if (!link) {
+      link = document.createElement("link");
+      link.setAttribute("rel", rel);
+      if (hreflang) {
+        link.setAttribute("hreflang", hreflang);
+      }
+      document.head.appendChild(link);
+    }
+    link.setAttribute("href", href);
+  };
+
   useEffect(() => {
     // Dynamically adjust html dir and lang attribute
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = lang;
+
+    const currentSeo = seoByLang[lang];
+    const pageUrl = window.location.origin + window.location.pathname;
+
+    document.title = currentSeo.title;
+    upsertMeta("name", "description", currentSeo.description);
+    upsertMeta("property", "og:title", currentSeo.title);
+    upsertMeta("property", "og:description", currentSeo.description);
+    upsertMeta("property", "og:url", pageUrl);
+    upsertMeta("property", "og:locale", currentSeo.ogLocale);
+    upsertMeta("name", "twitter:title", currentSeo.title);
+    upsertMeta("name", "twitter:description", currentSeo.description);
+
+    upsertLink("canonical", pageUrl);
+    upsertLink("alternate", pageUrl, "x-default");
+    upsertLink("alternate", pageUrl, "en");
+    upsertLink("alternate", pageUrl, "ar");
   }, [lang]);
 
   const handleOpenConsultation = (serviceType = "") => {
