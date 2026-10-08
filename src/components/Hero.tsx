@@ -1,4 +1,5 @@
-import { ArrowDown, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, ArrowDown, Bot, Code2, ShieldCheck, Zap, MessageCircle, ExternalLink, Sparkles } from "lucide-react";
 import { translations } from "../translations";
 
 interface HeroProps {
@@ -9,114 +10,208 @@ interface HeroProps {
 
 export function Hero({ lang, onOpenConsultation, onExploreSolutions }: HeroProps) {
   const t = translations[lang];
+  const [activeTab, setActiveTab] = useState<"software" | "agentic">("software");
+
+  const ARCHITECTURE_PANELS = {
+    software: {
+      title: lang === "ar" ? "معمارية برمجيات الويب المتكاملة" : "Full-Stack Web & Software Engine",
+      subtitle: lang === "ar" ? "تطبيقات سريعة الاستجابة مبنية على أحدث تقنيات React وTypeScript" : "Sub-50ms latency, reactive frontend & robust backend",
+      status: lang === "ar" ? "جاهزية تشغيل 99.99%" : "99.99% Edge Availability",
+      stack: ["React", "TypeScript", "Tailwind CSS", "Vercel Edge", "REST / GraphQL"],
+      workflow: [
+        {
+          label: lang === "ar" ? "01. واجهات مستخدم فائقة الاستجابة" : "01. High-Performance Frontends",
+          detail: lang === "ar" ? "تصميم متجاوب بالكامل وتدفقات تسوق وتصفح تفاعلية وفورية" : "100% responsive fluid mobile layouts & instant transitions",
+        },
+        {
+          label: lang === "ar" ? "02. بوابات دفع وأنظمة مخصصة" : "02. Secure Commerce & Portals",
+          detail: lang === "ar" ? "ربط بوابات الدفع الإلكتروني، إدارة الجلسات وسلال الشراء" : "End-to-end payment integrations, cart states & session safety",
+        },
+        {
+          label: lang === "ar" ? "03. سرعة تحميل وتحسين محركات البحث" : "03. Edge Caching & Technical SEO",
+          detail: lang === "ar" ? "تحميل فوري عبر حوافي الشبكة وسرعة استجابة استثنائية" : "Sub-50ms TTFB across regional edge points",
+        },
+      ],
+    },
+    agentic: {
+      title: lang === "ar" ? "النواة الذاتية للذكاء الاصطناعي (Agentic Core)" : "Autonomous Agentic AI Engine",
+      subtitle: lang === "ar" ? "وكلاء أذكياء يتخذون القرارات ويتفاعلون مع قواعد البيانات" : "Goal-oriented agents executing database transactions & messaging",
+      status: lang === "ar" ? "تأريض دقيق 100% دون هلوسة" : "100% Grounded RAG & Tool Use",
+      stack: ["Autonomous Agents", "WhatsApp API", "Vector Embeddings", "RAG Pipeline", "FastAPI / Node"],
+      workflow: [
+        {
+          label: lang === "ar" ? "01. استيعاب السياق والنية دلالياً" : "01. Semantic Intent Perception",
+          detail: lang === "ar" ? "تحليل استفسار العميل عبر واتساب وتحديد الهدف بدقة" : "Classifying inbound customer intent with zero latency",
+        },
+        {
+          label: lang === "ar" ? "02. استعلام قواعد البيانات وتأريض المعرفة" : "02. Knowledge & Inventory Grounding",
+          detail: lang === "ar" ? "البحث في كتالوج المنتجات ومستندات الشركة لضمان الإجابة" : "Deterministic database checks before generating proposals",
+        },
+        {
+          label: lang === "ar" ? "03. تنفيذ الإجراء التلقائي الفوري" : "03. Autonomous Tool Execution",
+          detail: lang === "ar" ? "إرسال العرض المالي، تسجيل الطلب، وإشعار فريق المبيعات" : "Dispatching quotes, updating records & routing qualified leads",
+        },
+      ],
+    },
+  };
+
+  const currentPanel = ARCHITECTURE_PANELS[activeTab];
+  const officialWhatsApp = "https://wa.me/201028801508";
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen pt-32 pb-20 px-6 lg:px-8 flex flex-col justify-center items-center overflow-hidden stripe-bg-grid"
-    >
-      {/* Aurora visual blurs in background to establish deep tech mood */}
-      <div className="absolute top-[10%] left-[10%] w-[35vw] h-[35vw] rounded-full aurora-blur-1 filter blur-[80px] -z-10 animate-pulse duration-[10000ms] pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[10%] w-[45vw] h-[45vw] rounded-full aurora-blur-2 filter blur-[100px] -z-10 animate-pulse duration-[12000ms] pointer-events-none" />
-
-      {/* Main heroic section content */}
-      <div className="max-w-4xl mx-auto w-full relative z-10 flex flex-col items-start text-start">
-        {/* Futuristic Micro Pill Label */}
-        <div
-          id="hero-badge"
-          className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-[#00BFFF] mb-6 tracking-wide shadow-[0_0_15px_rgba(0,191,255,0.05)]"
-        >
-          <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00BFFF] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00BFFF]"></span>
-          </span>
-          <Sparkles className="w-3.5 h-3.5" />
-          {t.hero.badge}
-        </div>
-
-        <h1
-          id="hero-title"
-          className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.15] mb-6"
-        >
-          {t.hero.titleFirst} <br />
-          <span className="text-gradient-electric">{t.hero.titleGradient}</span>
-        </h1>
-
-        <p
-          id="hero-subtitle"
-          className="text-lg md:text-xl text-slate-300 font-sans max-w-2xl mb-10 leading-relaxed font-light"
-        >
-          {t.hero.subtitle}
-        </p>
-
-        {/* Luxury CTA Controls */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
-          <button
-            id="hero-cta-consult"
-            onClick={onOpenConsultation}
-            className="px-8 py-4 bg-[#00BFFF] text-black font-bold text-sm tracking-wide rounded-lg hover:bg-white hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-[0_8px_30px_rgba(0,191,255,0.35)]"
-          >
-            {t.hero.ctaBtn}
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className={lang === "ar" ? "rotate-180" : ""}
+    <section id="hero" className="relative pt-24 pb-14 md:pt-28 md:pb-16 border-b border-white/[0.08] text-start overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+          
+          {/* Left Column: Clear Value Proposition */}
+          <div className="lg:col-span-7 flex flex-col items-start text-start">
+            
+            {/* Confident Headline */}
+            <h1
+              id="hero-title"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-extrabold text-white tracking-tight leading-[1.15] mb-5 sm:mb-6"
             >
-              <path
-                d="M3.33331 8H12.6666"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M8 3.33333L12.6667 8L8 12.6667"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+              {t.hero.titleFirst}{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-300 to-blue-400">
+                {t.hero.titleGradient}
+              </span>
+            </h1>
 
-          <button
-            id="hero-cta-solutions"
-            onClick={onExploreSolutions}
-            className="px-8 py-4 bg-white/5 text-white border border-white/10 hover:border-white/20 hover:bg-white/10 font-bold text-sm tracking-wide rounded-lg transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
-          >
-            {t.hero.exploreBtn}
-          </button>
-        </div>
+            {/* Subtitle */}
+            <p
+              id="hero-subtitle"
+              className="text-sm sm:text-base md:text-lg text-slate-300 font-sans leading-relaxed font-normal mb-7 sm:mb-8 max-w-2xl"
+            >
+              {t.hero.subtitle}
+            </p>
 
-        {/* Core capability spotlights */}
-        <div className="mt-14 w-full max-w-xl grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-white/5 font-mono">
-          <div className="flex flex-col gap-1.5 text-start">
-            <div className="flex items-center gap-1.5 text-white font-bold tracking-wider text-sm">
-              <span className="text-[#00BFFF] text-xl font-display font-black">{t.hero.stat1Number}</span>
-              <span className="text-[11px] text-slate-300">{t.hero.stat1Label}</span>
+            {/* Primary Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto mb-10 sm:mb-12">
+              <a
+                id="hero-cta-whatsapp"
+                href={officialWhatsApp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-slate-950 bg-sky-400 hover:bg-sky-300 active:bg-sky-500 rounded-lg transition-all cursor-pointer shadow-lg shadow-sky-400/20 whitespace-nowrap min-h-[48px]"
+              >
+                <MessageCircle className="w-4 h-4 text-slate-950" />
+                <span>{t.hero.ctaBtn}</span>
+                <ArrowUpRight className="w-4 h-4 text-slate-950" />
+              </a>
+
+              <button
+                id="hero-cta-explore"
+                onClick={onExploreSolutions}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-medium text-slate-200 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 rounded-lg transition-all cursor-pointer whitespace-nowrap min-h-[48px]"
+              >
+                <span>{t.hero.exploreBtn}</span>
+                <ArrowDown className="w-4 h-4 text-slate-400" />
+              </button>
+            </div>
+
+            {/* Quantitative Proof Metrics Strip (Clean, unboxed) */}
+            <div className="w-full pt-6 sm:pt-8 border-t border-white/[0.08] grid grid-cols-3 gap-2 sm:gap-6">
+              <div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white tabular-nums tracking-tight">
+                  {t.hero.stat1Number}
+                </div>
+                <div className="text-[11px] sm:text-xs text-slate-400 mt-1 leading-snug">
+                  {t.hero.stat1Label}
+                </div>
+              </div>
+
+              <div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white tabular-nums tracking-tight">
+                  {t.hero.stat2Number}
+                </div>
+                <div className="text-[11px] sm:text-xs text-slate-400 mt-1 leading-snug">
+                  {t.hero.stat2Label}
+                </div>
+              </div>
+
+              <div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white tabular-nums tracking-tight">
+                  {t.hero.stat3Number || "5+"}
+                </div>
+                <div className="text-[11px] sm:text-xs text-slate-400 mt-1 leading-snug">
+                  {t.hero.stat3Label || (lang === "ar" ? "منصات مكتملة" : "Delivered Platforms")}
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Column: Live Dual-Core Architecture Preview */}
+          <div className="lg:col-span-5 w-full">
+            <div className="rounded-xl border border-white/[0.1] bg-slate-950/80 backdrop-blur-md shadow-2xl p-4 sm:p-6 md:p-7 relative overflow-hidden">
+              
+              {/* Top Bar with Interactive Tab Switchers */}
+              <div className="flex items-center justify-between pb-5 border-b border-white/[0.08] mb-5">
+                <div className="flex items-center gap-1.5 p-1 bg-slate-900 rounded-lg border border-white/[0.06]">
+                  <button
+                    onClick={() => setActiveTab("software")}
+                    className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all cursor-pointer flex items-center gap-1.5 ${
+                      activeTab === "software"
+                        ? "bg-sky-500 text-slate-950 font-semibold shadow-sm"
+                        : "text-slate-400 hover:text-white"
+                    }`}
+                  >
+                    <Code2 className="w-3.5 h-3.5" />
+                    <span>{lang === "ar" ? "البرمجيات" : "Web & Apps"}</span>
+                  </button>
+
+                  <button
+                    onClick={() => setActiveTab("agentic")}
+                    className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all cursor-pointer flex items-center gap-1.5 ${
+                      activeTab === "agentic"
+                        ? "bg-sky-500 text-slate-950 font-semibold shadow-sm"
+                        : "text-slate-400 hover:text-white"
+                    }`}
+                  >
+                    <Bot className="w-3.5 h-3.5" />
+                    <span>{lang === "ar" ? "الوكلاء الذاتيون" : "Agentic AI"}</span>
+                  </button>
+                </div>
+
+                <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>ONLINE</span>
+                </div>
+              </div>
+
+              {/* Panel Header */}
+              <div className="mb-5">
+                <h3 className="text-base sm:text-lg font-display font-bold text-white tracking-tight">
+                  {currentPanel.title}
+                </h3>
+                <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+                  {currentPanel.subtitle}
+                </p>
+              </div>
+
+              {/* Step-by-Step Architecture Pipeline */}
+              <div className="space-y-3">
+                {currentPanel.workflow.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="p-3.5 rounded-lg bg-slate-900/60 border border-white/[0.05] hover:border-sky-500/30 transition-colors"
+                  >
+                    <div className="text-xs font-semibold text-slate-200 mb-0.5">
+                      {item.label}
+                    </div>
+                    <div className="text-xs text-slate-400 font-normal leading-relaxed">
+                      {item.detail}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="flex flex-col gap-1.5 text-start">
-            <div className="flex items-center gap-1.5 text-white font-bold tracking-wider text-sm">
-              <span className="text-[#8A2BE2] text-xl font-display font-black">{t.hero.stat2Number}</span>
-              <span className="text-[11px] text-slate-300">{t.hero.stat2Label}</span>
-            </div>
-          </div>
+
         </div>
+
       </div>
-
-      {/* Floating dynamic scroll indicator pointing to showcase */}
-      <button
-        id="scroll-down-btn"
-        onClick={onExploreSolutions}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer text-slate-400 hover:text-[#00BFFF] transition-colors focus:outline-none"
-      >
-        <span className="text-[10px] tracking-widest uppercase font-mono">SCROLL TO DISCOVER</span>
-        <ArrowDown className="w-4 h-4 animate-bounce" />
-      </button>
     </section>
   );
 }

@@ -6,29 +6,33 @@
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import CoreOverview from "./components/CoreOverview";
+import WebDevelopment from "./components/WebDevelopment";
+import AgenticAI from "./components/AgenticAI";
+import Portfolio from "./components/Portfolio";
 import AboutUs from "./components/AboutUs";
-import Services from "./components/Services";
 import Stats from "./components/Stats";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 import NetworkCanvas from "./components/NetworkCanvas";
+import WhatsAppWidget from "./components/WhatsAppWidget";
 
 export default function App() {
-  const [lang, setLang] = useState<"en" | "ar">("ar");
+  const [lang, setLang] = useState<"en" | "ar">("en");
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [inquiryServiceContext, setInquiryServiceContext] = useState("");
 
   const seoByLang = {
     ar: {
-      title: "Agentik Net | تطوير مواقع ودمج ذكاء اصطناعي وأتمتة أعمال",
+      title: "Agentik Net | استوديو هندسة برمجيات وتكاملات الذكاء الاصطناعي والأنظمة الوكيلة",
       description:
-        "Agentik Net تبني مواقع ويب احترافية وتكاملات ذكاء اصطناعي وأنظمة أتمتة مخصصة للشركات في مصر والإمارات.",
+        "Agentik Net تبني مواقع ومنصات ويب متطورة، وتدمج وكلاء ذكاء اصطناعي (Agentic AI) وأنظمة أتمتة مخصصة للشركات الطموحة في مصر والإمارات.",
       ogLocale: "ar_AR",
     },
     en: {
-      title: "Agentik Net | AI Solutions, Web Development, and Automation",
+      title: "Agentik Net | Production Software Engineering & Autonomous AI Systems",
       description:
-        "Agentik Net delivers custom web development, AI agent integration, backend engineering, and workflow automation for businesses in Egypt and UAE.",
+        "Agentik Net engineers high-performance web applications, enterprise portals, autonomous AI agents, and workflow automation for businesses in Egypt and UAE.",
       ogLocale: "en_US",
     },
   } as const;
@@ -51,7 +55,7 @@ export default function App() {
     let link = document.head.querySelector(selector);
     if (!link) {
       link = document.createElement("link");
-      link.setAttribute("rel", rel);
+      link.setAttribute(rel, rel);
       if (hreflang) {
         link.setAttribute("hreflang", hreflang);
       }
@@ -86,6 +90,7 @@ export default function App() {
   const handleOpenConsultation = (serviceType = "") => {
     setInquiryServiceContext(serviceType);
     setIsFormOpen(true);
+    handleNavigateTo("contact");
   };
 
   const handleCloseConsultation = () => {
@@ -101,13 +106,10 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen font-sans selection:bg-[#00BFFF] selection:text-black scroll-smooth" id="agentik-root-app">
+    <div className="relative min-h-screen font-sans selection:bg-sky-400 selection:text-slate-950 scroll-smooth bg-[#07090E] overflow-x-hidden w-full max-w-full" id="agentik-root-app">
       
-      {/* High-fidelity fixed background canvas nodes */}
+      {/* Subtle fixed background canvas nodes */}
       <NetworkCanvas />
-
-      {/* Noise-overlay to prevent gradient banding and establish premium editorial grain */}
-      <div className="noise-overlay" />
 
       {/* 1. Global Navigation */}
       <Navbar
@@ -117,23 +119,47 @@ export default function App() {
         onNavigateTo={handleNavigateTo}
       />
 
-      {/* 2. Main Hero Split */}
+      {/* 2. Hero Section */}
       <Hero
         lang={lang}
         onOpenConsultation={() => handleOpenConsultation()}
-        onExploreSolutions={() => handleNavigateTo("about-us")}
+        onExploreSolutions={() => handleNavigateTo("what-we-do")}
       />
 
-      {/* 3. About Us and Partners Team profiles */}
-      <AboutUs lang={lang} />
+      {/* 3. What the Company Does (Dual Engineering Strength) */}
+      <CoreOverview
+        lang={lang}
+        onNavigateTo={handleNavigateTo}
+      />
 
-      {/* 3.1 Core Expertise & Services */}
-      <Services lang={lang} />
+      {/* 4. Software & Web Development Capabilities */}
+      <WebDevelopment
+        lang={lang}
+        onOpenConsultation={() => handleOpenConsultation("web")}
+      />
 
-      {/* 3.2 Key Stats & Local Growth Tracker */}
-      <Stats lang={lang} />
+      {/* 5. AI & Agentic AI Capabilities */}
+      <AgenticAI
+        lang={lang}
+        onOpenConsultation={() => handleOpenConsultation("ai")}
+      />
 
-      {/* 4. Final Immersive CTA & Secured Lead Form */}
+      {/* 6. Selected Work / Portfolio (Preserving all 3 real projects) */}
+      <Portfolio
+        lang={lang}
+      />
+
+      {/* 7. Leadership, Founders & Why Choose Us */}
+      <AboutUs
+        lang={lang}
+      />
+
+      {/* 8. Quantitative Reliability & Stats */}
+      <Stats
+        lang={lang}
+      />
+
+      {/* 9. Contact / Consultation Form & Primary WhatsApp Hotline */}
       <CTA
         lang={lang}
         isFormOpen={isFormOpen}
@@ -142,11 +168,16 @@ export default function App() {
         serviceTypeDefault={inquiryServiceContext}
       />
 
-      {/* 5. Regulatory Corporate Footer map */}
+      {/* 10. Regulatory Corporate Agency Footer */}
       <Footer
         lang={lang}
         onNavigateTo={handleNavigateTo}
         onOpenConsultation={() => handleOpenConsultation()}
+      />
+
+      {/* 11. Subtle Floating WhatsApp Quick Action (01028801508) */}
+      <WhatsAppWidget
+        lang={lang}
       />
 
     </div>

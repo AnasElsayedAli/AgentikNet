@@ -1,4 +1,4 @@
-import { Mail, Phone, GraduationCap, Brain } from "lucide-react";
+import { GraduationCap, CheckCircle2, MessageCircle, ArrowUpRight, ShieldCheck, Terminal, Award } from "lucide-react";
 import { translations } from "../translations";
 
 interface AboutUsProps {
@@ -10,223 +10,164 @@ export function AboutUs({ lang }: AboutUsProps) {
 
   const team = [
     {
-      id: "anas",
-      name: lang === "ar" ? "أنس" : "Anas",
-      role: lang === "ar" ? "شريك مؤسس ومهندس أنظمة خلفية" : "Co-Founder & Backend Engineer",
-      education: lang === "ar" ? "بكالوريوس علوم الحاسب ونظم المعلومات" : "B.Sc. in Computer & Information Sciences",
-      specialization: lang === "ar" ? "معمارية الأنظمة الذكية والعملاء المستقلين" : "AI & Agentic Systems Architecture",
-      phone: "+201115366192",
-      email: "anas.say3d@gmail.com",
-      avatarSvg: (
-        <img 
-          src="/WhatsApp Image 2026-07-17 at 10.31.02 PM.jpeg" 
-          className="w-full h-full object-cover select-none pointer-events-none" 
-          alt="Anas Portrait" 
-          referrerPolicy="no-referrer"
-        />
-      )
+      name: lang === "ar" ? "م. أنس السيد" : "Eng. Anas Elsayed",
+      role: lang === "ar" ? "شريك مؤسس • مهندس أنظمة خلفية وذكاء اصطناعي" : "Co-Founder · Systems & AI Architect",
+      education: lang === "ar" ? "بكالوريوس علوم الحاسب" : "B.Sc. in Computer Science",
+      specialization: lang === "ar" ? "معمارية الأنظمة الذكية والعملاء الوكلاء (Agentic Systems)" : "Autonomous Agent Architectures & Backend Infrastructure",
+      phone: "",
+      displayPhone: "",
+      whatsappNumber: "",
+      imageSrc: "/WhatsApp Image 2026-07-17 at 10.31.02 PM.jpeg",
     },
     {
-      id: "modather",
-      name: lang === "ar" ? "مدثر" : "Modather",
-      role: lang === "ar" ? "شريك مؤسس ومهندس أنظمة خلفية" : "Co-Founder & Backend Engineer",
-      education: lang === "ar" ? "بكالوريوس علوم الحاسب ونظم المعلومات" : "B.Sc. in Computer & Information Sciences",
-      specialization: lang === "ar" ? "معمارية الأنظمة الذكية والعملاء المستقلين" : "AI & Agentic Systems Architecture",
+      name: lang === "ar" ? "م. مدثر أسامة" : "Eng. Modather Osama",
+      role: lang === "ar" ? "شريك مؤسس • مهندس أنظمة خلفية وذكاء اصطناعي" : "Co-Founder · Systems & AI Architect",
+      education: lang === "ar" ? "بكالوريوس علوم الحاسب" : "B.Sc. in Computer Science",
+      specialization: lang === "ar" ? "هندسة قواعد البيانات الموزعة وتكامل النماذج اللغوية" : "Distributed Database Engineering & LLM Orchestration",
       phone: "+201028801508",
-      email: "modatherossama1@gmail.com",
-      avatarSvg: (
-        <img 
-          src="/WhatsApp Image 2026-07-18 at 2.48.52 AM.jpeg"
-          className="w-full h-full object-cover select-none pointer-events-none" 
-          alt="Modather Portrait" 
-          referrerPolicy="no-referrer"
-        />
-      )
-    }
+      displayPhone: "01028801508",
+      whatsappNumber: "201028801508",
+      imageSrc: "/WhatsApp Image 2026-07-18 at 2.48.52 AM.jpeg",
+    },
   ];
 
-  const partners = [
+  const ENGINEERING_PILLARS = [
     {
-      name: "Atlantic International Corporation",
-      logo: (
-        <img 
-          src="/Screenshot 2026-07-17 235343.png" 
-          className="w-full h-full object-cover select-none pointer-events-none" 
-          alt="Atlantic International Corporation Logo" 
-          referrerPolicy="no-referrer"
-        />
-      ),
-      taglineAr: "الشركة الدولية الأطلسية للمنتجات الصناعية والصيانة",
-      taglineEn: "Industrial Maintenance & Service Solutions",
-      description: lang === "ar" 
-        ? "تعتبر الشركة الدولية الأطلسية (Atlantic International Corporation) واحدة من المؤسسات الرائدة المتخصصة في تقديم وتوريد منتجات الصيانة الصناعية الفائقة وتأمين الدعم الميداني والتقني للمصانع والمنشآت." 
-        : "Atlantic International Corporation is a recognized leader in specialized industrial maintenance supplies and technical services across all operational facilities."
+      title: lang === "ar" ? "تواصل مباشر مع المهندسين المؤسسين" : "Direct Lead Architect Engagement",
+      desc: lang === "ar"
+        ? "تتحدث مباشرة مع مهندسي البرمجيات الذين يبنون نظامك فعلياً، دون وسطاء إداريين أو موظفي مبيعات غير تقنيين."
+        : "Work directly with the software architects who design and write your system, eliminating non-technical telephone games.",
     },
     {
-      name: "Tarek Helal Co.",
-      logo: (
-        <img 
-          src="/logo.png" 
-          className="w-full h-full object-cover select-none pointer-events-none" 
-          alt="Tarek Helal Co. Logo" 
-          referrerPolicy="no-referrer"
-        />
-      ),
-      taglineAr: "شركة طارق هلال لاستيراد وتصدير وتجهيز صالونات التجميل والحلاقة",
-      taglineEn: "Cosmetic & Professional Salon Supplies",
-      description: lang === "ar" 
-        ? "مؤسسة رائدة في قطاع التجارة الدولية والاستيراد والتصدير لجميع مستلزمات وتجهيزات مراكز التجميل الاحترافية وصالونات الحلاقة بأحدث المعدات والأدوات العالمية." 
-        : "Tarek Helal Co. is an established premium importer and exporter of professional salon hardware and high-performance beauty equipment."
-    }
+      title: lang === "ar" ? "كود برمجي نقي ومخصص 100%" : "Bespoke Clean Code, Zero Template Bloat",
+      desc: lang === "ar"
+        ? "نبني أنظمتك من الصفر باستخدام معايير هندسية صارمة وخالية من القوالب البطيئة أو المنصات الجاهزة المقيدة."
+        : "We build tailored software architectures with strict type safety, zero drag-and-drop bloat, and long-term maintainability.",
+    },
+    {
+      title: lang === "ar" ? "خبرة هندسية حقيقية في الذكاء الاصطناعي" : "Deep AI & Agentic Engineering Rigor",
+      desc: lang === "ar"
+        ? "نعرف متى نعتمد على نماذج اللغة، ومتى نستخدم القواعد الرياضية، وكيف نؤرّض البيانات لحماية الميزانية والأداء."
+        : "We understand when to call an LLM, when to use deterministic algorithms, and how to build verifiable RAG pipelines.",
+    },
+    {
+      title: lang === "ar" ? "بنية سحابية مستقرة وعالية التوافر" : "99.9% High Availability Cloud Deployment",
+      desc: lang === "ar"
+        ? "تصميم خوادم وقواعد بيانات تتحمل التوسع المفاجئ في الزيارات والمعاملات دون توقف أو بطء في الأداء."
+        : "High-throughput cloud deployments engineered with resilient database failover and sub-50ms edge caching.",
+    },
   ];
 
   return (
-    <section id="about-us" className="relative py-24 sm:py-32 overflow-hidden border-t border-white/5 bg-[#050816]">
-      {/* Absolute visual gradient backdrops */}
-      <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-[#00BFFF]/5 rounded-full filter blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-[#8A2BE2]/5 rounded-full filter blur-[150px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="about-us" className="py-14 sm:py-20 border-b border-white/[0.08] text-start bg-slate-950/40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* ================= SECTION HEADER ================= */}
-        <div className="max-w-3xl text-start mb-20">
-          <span className="text-xs font-mono tracking-widest text-[#00BFFF] uppercase block mb-3">
-            {t.about.badge}
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+        {/* Section Header */}
+        <div className="max-w-3xl mb-10">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
             {t.about.title}
           </h2>
-          <p className="text-slate-400 mt-4 text-base leading-relaxed font-light">
+          <p className="text-slate-300 mt-4 text-base sm:text-lg leading-relaxed font-normal">
             {t.about.desc}
           </p>
         </div>
 
-        {/* ================= MEET THE TEAM SECTION ================= */}
-        <div className="mb-28">
-          <h3 className="text-lg font-mono tracking-widest text-slate-400 uppercase mb-10 pb-3 border-b border-white/5 flex items-center gap-2 text-start">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00BFFF] animate-pulse" />
-            {lang === "ar" ? "الفريق البرمجي" : "The Core Engineering Team"}
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {team.map((member) => (
-              <div 
-                key={member.id}
-                className="group relative flex flex-col sm:flex-row gap-6 p-6 sm:p-8 rounded-2xl bg-white/3 border border-white/5 hover:border-[#00BFFF]/30 transition-all duration-300 overflow-hidden"
-              >
-                {/* Subtle light sweep */}
-                <div className="absolute -top-1/2 left-0 w-full h-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000" />
-                
-                {/* Profile Photo / Avatar - fully static */}
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shrink-0 bg-slate-950/40 border border-white/10 flex items-center justify-center self-start sm:self-center select-none pointer-events-none">
-                  {member.avatarSvg}
-                </div>
-
-                {/* Member Info details */}
-                <div className="flex-1 flex flex-col justify-between space-y-4 text-start">
-                  <div>
-                    <h4 className="text-2xl font-display font-extrabold text-white tracking-tight flex items-center gap-2">
-                      {member.name}
-                      <span className="text-[10px] font-mono font-medium text-[#00BFFF] bg-[#00BFFF]/10 px-2 py-0.5 rounded-full">
-                        {t.about.founderLabel}
-                      </span>
-                    </h4>
-                    <p className="text-xs font-mono text-[#8A2BE2] font-semibold mt-1">
-                      {member.role}
-                    </p>
-                    
-                    {/* Education and Specialization */}
-                    <div className="mt-4 space-y-2 text-xs text-slate-300 font-sans font-light">
-                      <div className="flex items-center gap-2.5">
-                        <GraduationCap className="w-4 h-4 text-slate-500 shrink-0" />
-                        <span><strong>{t.about.eduLabel}:</strong> {member.education}</span>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <Brain className="w-4 h-4 text-slate-500 shrink-0" />
-                        <span><strong>{t.about.specLabel}:</strong> {member.specialization}</span>
-                      </div>
-                    </div>
+        {/* Founding Team Profiles Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-10 max-w-5xl mx-auto">
+          {team.map((member, idx) => (
+            <div
+              key={idx}
+              className="rounded-xl border border-white/[0.08] bg-slate-900/50 p-4 sm:p-6 flex flex-col justify-between hover:border-slate-700 transition-all duration-300"
+            >
+              <div>
+                {/* Profile Header */}
+                <div className="flex items-center gap-3.5 sm:gap-4 pb-4 border-b border-white/[0.08] mb-4">
+                  {/* Real Portrait Container */}
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden shrink-0 border border-white/[0.12] bg-slate-950 shadow-md">
+                    <img
+                      src={member.imageSrc}
+                      alt={member.name}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover object-top"
+                      loading="lazy"
+                    />
                   </div>
 
-                  {/* Clean Contact Details Panel */}
-                  <div className="pt-4 border-t border-white/5 grid grid-cols-1 gap-2 text-[11px] font-mono">
-                    <a 
-                      href={`mailto:${member.email}`}
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-2 text-slate-400 hover:text-[#00BFFF] transition-colors"
-                    >
-                      <Mail className="w-3.5 h-3.5 text-[#00BFFF]/60" />
-                      <span>{member.email}</span>
-                    </a>
-                    <a 
-                      href={`tel:${member.phone}`}
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center gap-2 text-slate-400 hover:text-[#00BFFF] transition-colors"
-                    >
-                      <Phone className="w-3.5 h-3.5 text-[#00BFFF]/60" />
-                      <span>{member.phone}</span>
-                    </a>
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[10px] sm:text-xs font-mono text-sky-400 block mb-0.5">
+                      {t.about.founderLabel}
+                    </span>
+                    <h3 className="text-base sm:text-lg font-display font-bold text-white tracking-tight truncate">
+                      {member.name}
+                    </h3>
+                    <p className="text-xs text-slate-300 mt-0.5 font-normal leading-snug">
+                      {member.role}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Academic Credentials */}
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-start gap-2.5 text-xs text-slate-300">
+                    <GraduationCap className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
+                    <div>
+                      <span className="text-slate-400 block text-[10px] font-mono">{t.about.eduLabel}</span>
+                      <span className="font-medium text-xs text-slate-200">{member.education}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
 
-          {/* Premium bio brief card */}
-          <div className="mt-8 p-6 rounded-xl bg-[#00BFFF]/5 border border-[#00BFFF]/10 text-start max-w-4xl">
-            <h4 className="text-sm font-bold text-white mb-2 flex items-center gap-2">
-              <span>{t.about.bioTitle}</span>
-            </h4>
-            <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
-              {t.about.bioText}
-            </p>
-          </div>
+              {/* Direct WhatsApp Contact */}
+              <div className="pt-3.5 border-t border-white/[0.08] flex items-center justify-between gap-2 text-xs">
+                {member.whatsappNumber ? (
+                  <a
+                    href={`https://wa.me/${member.whatsappNumber}?text=${encodeURIComponent(
+                      lang === "ar"
+                        ? `السلام عليكم م. ${member.name.replace("م. ", "")}، أود مناقشة مشروع برمجي جديد معكم عبر موقع Agentik Net.`
+                        : `Hello Eng. ${member.name.replace("Eng. ", "")}, I would like to discuss a software project with Agentik Net.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-medium transition-colors"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span>{lang === "ar" ? `واتساب: ${member.displayPhone}` : `WhatsApp: ${member.displayPhone}`}</span>
+                  </a>
+                ) : (
+                  <span className="text-slate-500 text-xs font-mono">
+                    {lang === "ar" ? "التواصل عبر القناة الرسمية" : "Official Hotline"}
+                  </span>
+                )}
+
+                <span className="text-[10px] font-mono text-slate-400 hidden sm:inline">
+                  Computer Science
+                </span>
+              </div>
+
+            </div>
+          ))}
         </div>
 
-        {/* ================= ACTIVE PARTNERS & PROJECTS SECTION ================= */}
-        <div id="partners-section">
-          <h3 className="text-lg font-mono tracking-widest text-slate-400 uppercase mb-10 pb-3 border-b border-white/5 flex items-center gap-2 text-start">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#8A2BE2] animate-pulse" />
-            {t.partners.badge}
+        {/* Why Work With Us: 4 Engineering Standards */}
+        <div className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-8 md:p-10">
+          <h3 className="text-xl sm:text-2xl font-display font-bold text-white tracking-tight mb-6 sm:mb-8">
+            {lang === "ar" ? "معايير هندسية صارمة تضمن نجاح مشروعك" : "Rigorous Engineering Standards That Guarantee Success"}
           </h3>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {partners.map((partner, idx) => (
-              <div 
-                key={idx}
-                className="group relative flex flex-col sm:flex-row gap-6 p-6 sm:p-8 rounded-2xl bg-white/3 border border-white/5 hover:border-[#8A2BE2]/30 transition-all duration-300 overflow-hidden text-start"
-              >
-                {/* Subtle light sweep */}
-                <div className="absolute -top-1/2 left-0 w-full h-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000" />
-                
-                {/* Logo Area - Static, small and fixed size */}
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden shrink-0 bg-slate-950/40 border border-white/10 flex items-center justify-center self-start sm:self-center select-none pointer-events-none">
-                  {partner.logo}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {ENGINEERING_PILLARS.map((pillar, idx) => (
+              <div key={idx} className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center shrink-0 mt-1">
+                  <CheckCircle2 className="w-4 h-4" />
                 </div>
-
-                {/* Text descriptions */}
-                <div className="flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-2">
-                    <span className="text-[10px] font-mono tracking-wider text-[#00BFFF] uppercase font-bold block">
-                      {t.partners.activeProject}
-                    </span>
-                    <h4 className="text-xl font-display font-extrabold text-white">
-                      {partner.name}
-                    </h4>
-                    <p className="text-xs font-mono text-slate-400">
-                      {partner.taglineEn} <br />
-                      <span className="text-[#8A2BE2] font-semibold">{partner.taglineAr}</span>
-                    </p>
-                    <p className="text-sm text-slate-300 leading-relaxed font-sans font-light">
-                      {partner.description}
-                    </p>
-                  </div>
-
-                  {/* Badge showing production focus */}
-                  <div className="pt-4 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-slate-500">
-                    <span>{t.partners.statusLabel}</span>
-                    <span className="text-[#00BFFF] font-bold">{t.partners.statusValue}</span>
-                  </div>
+                <div>
+                  <h4 className="text-base font-display font-bold text-white mb-1.5">
+                    {pillar.title}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                    {pillar.desc}
+                  </p>
                 </div>
               </div>
             ))}

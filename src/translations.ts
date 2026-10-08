@@ -1,9 +1,12 @@
 export interface Translation {
   nav: {
     about: string;
+    services: string;
     partners: string;
     contact: string;
     cta: string;
+    webDev?: string;
+    aiAgents?: string;
   };
   hero: {
     badge: string;
@@ -16,6 +19,8 @@ export interface Translation {
     stat1Label: string;
     stat2Number: string;
     stat2Label: string;
+    stat3Number?: string;
+    stat3Label?: string;
   };
   about: {
     badge: string;
@@ -45,6 +50,26 @@ export interface Translation {
     fullstackDesc: string;
     consultingTitle: string;
     consultingDesc: string;
+  };
+  webDevSection: {
+    badge: string;
+    title: string;
+    desc: string;
+    cards: Array<{
+      title: string;
+      desc: string;
+      tags: string[];
+    }>;
+  };
+  aiSection: {
+    badge: string;
+    title: string;
+    desc: string;
+    capabilities: Array<{
+      title: string;
+      desc: string;
+      deliverables: string[];
+    }>;
   };
   stats: {
     badge: string;
@@ -81,52 +106,113 @@ export interface Translation {
     close: string;
     officeHoursLabel: string;
     officeHoursValue: string;
+    whatsappCta: string;
   };
   footer: {
     desc: string;
     links: string;
     contact: string;
     allRightsReserved: string;
+    phoneLabel: string;
   };
 }
 
 export const translations: Record<"en" | "ar", Translation> = {
   ar: {
     nav: {
-      about: "من نحن",
-      partners: "شركاؤنا ومشاريعنا",
-      contact: "اتصل بنا",
+      about: "فريق العمل والمؤسسون",
+      services: "مجالات العمل",
+      partners: "أعمالنا المنجزة",
+      contact: "تواصل معنا",
       cta: "ابدأ مشروعك",
+      webDev: "تطوير البرمجيات والويب",
+      aiAgents: "الأنظمة والوكلاء الأذكياء",
     },
     hero: {
-      badge: "عصر التطبيقات الوكيلة • Agentic Systems",
-      titleFirst: "نصمم ونطور تطبيقات المستقبل المدعومة",
-      titleGradient: "بالذكاء الاصطناعي الذاتي",
-      subtitle: "نحن هنا لمساعدتك على أتمتة عملياتك وبناء برمجيات ومواقع ويب ذكية، رشيقة ومخصصة بالكامل تزيد من كفاءة أعمالك وتوفر وقتك.",
-      ctaBtn: "استشارة مجانية",
-      exploreBtn: "تعرف علينا",
+      badge: "استوديو هندسة برمجيات وذكاء اصطناعي",
+      titleFirst: "نبني برمجيات فائقة الأداء وأنظمة",
+      titleGradient: "ذكاء اصطناعي ذاتية للشركات",
+      subtitle: "نطور مواقع وتطبيقات ويب متكاملة مصممة خصيصاً لأعمالك، وندمج وكلاء ذكاء اصطناعي (Agentic AI) لأتمتة المهام المعقدة، ورفع الكفاءة التشغيلية، ومضاعفة نمو أعمالك.",
+      ctaBtn: "ابدأ مشروعك عبر واتساب",
+      exploreBtn: "استكشف خدماتنا الهندسية",
       stat1Number: "100%",
-      stat1Label: "تكامل مخصص للذكاء الاصطناعي",
+      stat1Label: "كود برمجي مخصص وخالٍ من القوالب",
       stat2Number: "24/7",
-      stat2Label: "أنظمة أتمتة تعمل ذاتياً",
+      stat2Label: "جاهزية تشغيل الأنظمة والأتمتة",
+      stat3Number: "5+",
+      stat3Label: "منصات ومشاريع رقمية مكتملة",
+    },
+    webDevSection: {
+      badge: "تطوير الويب والبرمجيات المتكاملة",
+      title: "برمجيات إنتاجية متماسكة، وليست مجرد صفحات هبوط",
+      desc: "نمتلك القدرة الهندسية لبناء أنظمة تقنية متكاملة ومستقرة، من واجهات المستخدم فائقة السرعة وحتى الخوادم وقواعد البيانات المحمية.",
+      cards: [
+        {
+          title: "منصات التجارة الإلكترونية المخصصة",
+          desc: "متاجر رقمية سريعة للغاية مع سلال تسوق تفاعلية، وتكامل بوابات دفع إلكترونية مؤمنة، وإدارة دقيقة للمخزون والطلبات.",
+          tags: ["Dynamic Cart", "Payment Gateways", "Edge Caching", "Responsive Flows"],
+        },
+        {
+          title: "تطبيقات الويب وبوابات الأعمال (B2B / SaaS)",
+          desc: "منظومات أعمال رقمية متقدمة لإدارة العمليات التشغيلية، بوابات الموردين، وإدارة علاقات العملاء مع تحكم كامل بالصلاحيات.",
+          tags: ["Enterprise Portals", "Role-Based Access", "TypeScript", "Real-Time State"],
+        },
+        {
+          title: "الأنظمة الخلفية وقواعد البيانات (Back-End)",
+          desc: "بناء خوادم مستقرة وواجهات برمجة تطبيقات (REST APIs) سريعة، وهندسة قواعد بيانات علائقية متطورة (PostgreSQL) مصممة للتوسع.",
+          tags: ["PostgreSQL", "Scalable APIs", "Data Integrity", "End-to-End Encryption"],
+        },
+        {
+          title: "لوحات التحكم والربط مع الخدمات الخارجية",
+          desc: "لوحات إدارة شاملة للبيانات والتحليلات الحية، وربط سلس مع مختلف خدمات الطرف الثالث، أنظمة الشحن، والإشعارات التلقائية.",
+          tags: ["Admin Dashboards", "Webhooks", "ERP Integrations", "Analytics"],
+        },
+      ],
+    },
+    aiSection: {
+      badge: "هندسة الأنظمة الوكيلة • Agentic AI",
+      title: "وكلاء ذكاء اصطناعي يعملون ذاتياً وينجزون المهام الفعلية",
+      desc: "نتجاوز مجرد نماذج المحادثة السطحية؛ نبني وكلاء أذكياء يتخذون القرارات، ويتفاعلون مع قواعد بياناتك وأنظمتك التشغيلية لتنفيذ مهام حقيقية بكفاءة متناهية.",
+      capabilities: [
+        {
+          title: "وكلاء ذكاء اصطناعي ذاتيون (AI Agents)",
+          desc: "أنظمة برمجية تفهم السياق، وتتخذ القرارات الذاتية، وتنفذ إجراءات حقيقية مثل الرد على العملاء وتوجيه الطلبات عبر واتساب والويب.",
+          deliverables: ["اتخاذ قرارات ذاتي", "تكامل واتساب المباشر", "معالجة الطلبات والاستفسارات"],
+        },
+        {
+          title: "أتمتة الأعمال وسلاسل الإجراءات (Agentic Workflows)",
+          desc: "ربط سير العمليات المتعددة تلقائياً؛ عند وقوع حدث ما، يقوم الوكيل بالتحقق من البيانات، وتحديث النظام، وإرسال التقارير دون تدخل بشري.",
+          deliverables: ["أتمتة العمليات المتكررة", "تقليل الأخطاء البشرية", "مزامنة لحظية بين الأنظمة"],
+        },
+        {
+          title: "أنظمة استرجاع المعرفة وتأريض البيانات (RAG)",
+          desc: "ربط نماذج الذكاء الاصطناعي بكتالوجاتك، ومستنداتك الداخلية، وسياسات شركتك لتقديم إجابات دقيقة وموثوقة خالية من الهلوسة.",
+          deliverables: ["فهارس متجهات دقيقة", "تأريض ببيانات الشركة", "إجابات دقيقة 100%"],
+        },
+        {
+          title: "أدوات داخلية ومساعدون تشغيليون مخصصون",
+          desc: "تطوير أدوات ذكاء اصطناعي مخصصة لفريق عملك لاستخراج البيانات من المستندات والفواتير، وتحليل التقارير وصياغة المراسلات فورياً.",
+          deliverables: ["استخراج بيانات الفواتير", "تلخيص العقود والتقارير", "توفير ساعات العمل اليومية"],
+        },
+      ],
     },
     about: {
       badge: "المؤسسون • فريق العمل",
       title: "العقول البرمجية خلف Agentic Net",
       desc: "نحن مهندسو برمجيات خريجو كلية الحاسبات والمعلومات، متخصصون في هندسة الأنظمة الخلفية وبناء وتدريب الأنظمة الوكيلة للذكاء الاصطناعي.",
       founderLabel: "مؤسس شريك",
-      eduLabel: "التعليم",
-      specLabel: "التخصص الدقيق",
-      bioTitle: "رؤيتنا وهدفنا",
-      bioText: "نؤمن بأن البرمجة التقليدية لم تعد كافية بمفردها؛ لذلك نقوم بدمج عملاء الذكاء الاصطناعي (AI Agents) لتتخذ القرارات الذاتية وتنجز المهام المعقدة نيابة عنك. نهدف لتقديم واجهات فائقة السرعة وبنية برمجية معقدة يتم تبسيطها لتمنحك أفضل تجربة مستخدم.",
+      eduLabel: "التعليم الأكاديمي",
+      specLabel: "التخصص التقني الدقيق",
+      bioTitle: "فلسفتنا في العمل الهندسي",
+      bioText: "نؤمن بأن البرمجيات الممتازة تجمع بين جمال الواجهات وسرعتها الفائقة من جهة، والعمق البرمجي الموثوق من جهة أخرى. من خلال دمج وكلاء الذكاء الاصطناعي في صميم الأنظمة، نمنح الشركات ميزة تنافسية استثنائية ونحرر فرق العمل من أعباء المهام اليدوية المتكررة.",
     },
     partners: {
-      badge: "المشاريع القائمة • شركاء النجاح",
-      title: "مشاريع نطورها الآن بكل فخر",
-      desc: "نعمل حالياً على تطوير البنية البرمجية والأنظمة الذكية لمؤسسات رائدة في قطاعات الصيانة والتجارة الدولية.",
-      activeProject: "مشروع قيد التطوير النشط",
-      statusLabel: "حالة النظام",
-      statusValue: "بناء البنية الأساسية V1",
+      badge: "أعمالنا المنجزة • Portfolio",
+      title: "مشاريع تم الانتهاء منها وتدشينها",
+      desc: "نماذج حقيقية لمواقع ومنصات رقمية متكاملة تم تطويرها وإطلاقها بنجاح بأعلى معايير التصميم والأداء البرمجي.",
+      activeProject: "مشروع مكتمل ومنشور",
+      statusLabel: "حالة المشروع",
+      statusValue: "تم الإطلاق والتسليم بنجاح",
     },
     services: {
       badge: "خدماتنا وخبراتنا • Our Services",
@@ -141,11 +227,11 @@ export const translations: Record<"en" | "ar", Translation> = {
     },
     stats: {
       badge: "الأثر والانتشار • Our Impact",
-      title: "ثقة متنامية من أصحاب الأعمال والمتاجر المحلية",
-      desc: "بعيداً عن شراكتنا مع الشركات الكبرى، قمنا بتمكين أصحاب الأعمال الصغيرة والتجار من إطلاق هوياتهم الرقمية وحلولهم المخصصة.",
-      merchantsCount: "+5",
-      merchantsLabel: "متاجر وأصحاب أعمال محلية",
-      merchantsSub: "تجار ومشاريع عادية صممنا وطورنا لها مواقع متميزة وبوابات متكاملة",
+      title: "نتائج ملموسة وجودة برمجية موثوقة",
+      desc: "نلتزم بتقديم برمجيات عالية الاعتمادية تمنح عملاءنا راحة البال وميزة تنافسية حقيقية.",
+      merchantsCount: "5+",
+      merchantsLabel: "مشاريع ومتاجر تم إطلاقها بنجاح",
+      merchantsSub: "منصات ومواقع مخصصة تم بناؤها من الصفر وتسليمها بالكامل للعملاء",
       deliveryCount: "100%",
       deliveryLabel: "تسليم مباشر وجودة هندسية دقيقة",
       deliverySub: "كود برمجي نظيف ومدروس بالكامل دون استخدام قوالب عشوائية جاهزة",
@@ -154,70 +240,131 @@ export const translations: Record<"en" | "ar", Translation> = {
       uptimeSub: "نهيئ السيرفرات السحابية ومواقع الويب لتعمل دون انقطاع وتتحمل تزايد الزيارات",
     },
     cta: {
-      badge: "تواصل معنا اليوم",
-      title: "دعنا نحول فكرتك إلى واقع ذكي",
-      subtitle: "سواء كنت ترغب في تصميم موقع ويب مبتكر أو دمج نظام ذكاء اصطناعي يقوم بأتمتة مهامك التشغيلية، نحن جاهزون لمساعدتك.",
-      formTitle: "طلب استشارة برمجية",
-      formSubtitle: "تواصل مباشرة مع المهندسين المؤسسين لمناقشة أبعاد مشروعك الفنية والتشغيلية.",
+      badge: "تواصل مباشر مع المؤسسين",
+      title: "جاهزون لبناء مشروعك البرمجي القادم",
+      subtitle: "تحدث مباشرة مع المهندسين المؤسسين لمناقشة أبعاد مشروعك الفنية والتشغيلية، أو اطلب استشارة برمجية مجانية.",
+      formTitle: "طلب استشارة ومناقشة مشروع",
+      formSubtitle: "املأ النموذج وسنتواصل معك خلال ساعات عبر الهاتف أو واتساب.",
       name: "الاسم الكريم",
       phone: "رقم الهاتف",
       email: "البريد الإلكتروني",
       message: "تفاصيل مشروعك أو فكرتك",
       service: "نوع الخدمة المطلوبة",
-      servicePlaceholder: "اختر ما يناسبك...",
-      serviceOption1: "تصميم موقع ويب متميز ومتجاوب",
-      serviceOption2: "دمج أنظمة ذكاء اصطناعي وأتمتة (Agentic systems)",
+      servicePlaceholder: "اختر نوع النظام البرمجي...",
+      serviceOption1: "تطوير موقع ويب أو منصة إلكترونية",
+      serviceOption2: "دمج أنظمة ذكاء اصطناعي وأتمتة (Agentic AI)",
       serviceOption3: "تطوير أنظمة خلفية وقواعد بيانات مخصصة",
-      submit: "إرسال الطلب",
+      submit: "إرسال طلب الاستشارة",
       cancel: "إلغاء",
-      success: "تم استلام طلبك بنجاح! سيتواصل معك م. أنس أو م. مدثر خلال أقل من 12 ساعة لمناقشة التفاصيل.",
+      success: "تم استلام طلبك بنجاح! سيتواصل معك المهندسون المؤسسون لمناقشة التفاصيل خلال ساعات.",
       close: "إغلاق",
       officeHoursLabel: "أوقات العمل واستقبال الاستشارات",
       officeHoursValue: "يومياً من 9:00 صباحاً وحتى 11:00 مساءً",
+      whatsappCta: "تواصل معنا مباشرة عبر واتساب: 01028801508",
     },
     footer: {
-      desc: "نصمم ونطور مواقع وتطبيقات المستقبل فائقة الأداء المدعومة بأنظمة الذكاء الاصطناعي والعملاء الذاتيين.",
-      links: "روابط سريعة",
-      contact: "تواصل مباشر مع المؤسسين",
-      allRightsReserved: "جميع الحقوق محفوظة. تم التطوير والابتكار بواسطة Agentic Net.",
+      desc: "استوديو هندسي متخصص في بناء برمجيات الويب المتطورة وتكاملات الذكاء الاصطناعي الذاتي للشركات الطموحة.",
+      links: "أقسام الموقع",
+      contact: "التواصل الرسمي",
+      allRightsReserved: "جميع الحقوق محفوظة. تم التطوير والهندسة بواسطة Agentik Net.",
+      phoneLabel: "الرقم الرسمي وواتساب",
     },
   },
   en: {
     nav: {
-      about: "About Us",
-      partners: "Partners & Projects",
+      about: "Leadership & Team",
+      services: "Capabilities",
+      partners: "Selected Work",
       contact: "Contact",
-      cta: "Get Started",
+      cta: "Start a Project",
+      webDev: "Software & Web Engineering",
+      aiAgents: "Agentic AI Systems",
     },
     hero: {
-      badge: "The Era of Agentic Systems",
-      titleFirst: "We Design and Build High-Performance",
-      titleGradient: "AI-Powered Web Apps",
-      subtitle: "We create pristine responsive web experiences and custom, goal-oriented AI agent integrations that automate workflows and elevate business performance.",
-      ctaBtn: "Free Consultation",
-      exploreBtn: "Who We Are",
+      badge: "Software Engineering & AI Studio",
+      titleFirst: "We Build High-Performance Software &",
+      titleGradient: "Autonomous AI Systems for Enterprises",
+      subtitle: "We engineer bespoke, production-grade web applications and deploy autonomous AI agents that streamline operations, eliminate repetitive overhead, and scale business growth.",
+      ctaBtn: "Start a Project on WhatsApp",
+      exploreBtn: "Explore Capabilities",
       stat1Number: "100%",
-      stat1Label: "Custom AI Architectures",
+      stat1Label: "Custom Engineering, Zero Bloat",
       stat2Number: "24/7",
-      stat2Label: "Autonomous Processes Run",
+      stat2Label: "Autonomous Execution & Uptime",
+      stat3Number: "5+",
+      stat3Label: "Production Platforms Delivered",
+    },
+    webDevSection: {
+      badge: "Full-Stack Software & Web Engineering",
+      title: "Resilient production systems, not just landing pages",
+      desc: "From sub-50ms user interfaces to hardened relational databases and secure cloud infrastructure, we build complete software systems designed to scale.",
+      cards: [
+        {
+          title: "Bespoke E-Commerce Platforms",
+          desc: "High-performance digital commerce engines with dynamic carts, secure payment gateways, inventory synchronization, and fluid mobile checkouts.",
+          tags: ["Dynamic Cart", "Payment Gateways", "Edge Caching", "Responsive Flows"],
+        },
+        {
+          title: "Custom Web Applications & B2B Portals",
+          desc: "Enterprise client portals, supplier coordination systems, and internal SaaS tools built with strict type safety and role-based permissions.",
+          tags: ["Enterprise Portals", "Role-Based Access", "TypeScript", "Real-Time State"],
+        },
+        {
+          title: "Backend Systems & Database Architecture",
+          desc: "Robust REST APIs, microservices, and normalized PostgreSQL database models engineered for high concurrency and zero data loss.",
+          tags: ["PostgreSQL", "Scalable APIs", "Data Integrity", "End-to-End Encryption"],
+        },
+        {
+          title: "Admin Dashboards & 3rd-Party Integrations",
+          desc: "Unified operational control rooms, live telemetry, automated invoice processing, and webhooks connecting your core software to external services.",
+          tags: ["Admin Dashboards", "Webhooks", "ERP Integrations", "Analytics"],
+        },
+      ],
+    },
+    aiSection: {
+      badge: "Agentic Systems & AI Architecture",
+      title: "Autonomous AI agents that execute real business operations",
+      desc: "We move beyond superficial chatbots. We engineer autonomous agents that perceive context, query databases, make decisions, and execute multi-step workflows.",
+      capabilities: [
+        {
+          title: "Autonomous AI Agents",
+          desc: "Goal-oriented software agents that understand nuance, autonomously qualify leads, and handle customer conversations over WhatsApp and web.",
+          deliverables: ["Autonomous Decision-Making", "Direct WhatsApp Integration", "Inbound Request Qualification"],
+        },
+        {
+          title: "Agentic Workflows & Business Automation",
+          desc: "Multi-step automated pipelines. When a trigger event occurs, agents validate data, query inventories, and dispatch actions with zero human delay.",
+          deliverables: ["Zero-Latency Process Chains", "Error-Free Reconciliations", "Cross-Platform Syncing"],
+        },
+        {
+          title: "Retrieval-Augmented Generation (RAG)",
+          desc: "Grounding large language models directly into your company catalogs, internal manuals, and private databases for hallucination-free answers.",
+          deliverables: ["Deterministic Vector Indexes", "Proprietary Data Grounding", "100% Verifiable Citations"],
+        },
+        {
+          title: "Custom AI Internal Copilots & Extraction Tools",
+          desc: "Intelligent internal tools for your operations team: automated data extraction from unstructured invoices, contract summaries, and smart drafting.",
+          deliverables: ["Automated Document Parsing", "Data Reconciliations", "Hours Saved Weekly"],
+        },
+      ],
     },
     about: {
       badge: "Founders • The Team",
-      title: "The Minds Behind Agentic Net",
-      desc: "We are professional software engineers, graduates of Computer Science, specialized in robust Backend Engineering and training autonomous AI Agentic systems.",
+      title: "The Engineering Minds Behind Agentic Net",
+      desc: "Professional software engineers, graduates of Computer Science, specialized in resilient backend architecture and autonomous agentic AI systems.",
       founderLabel: "Co-Founder",
-      eduLabel: "Education",
-      specLabel: "Core Focus",
-      bioTitle: "Our Shared Vision",
-      bioText: "We believe code should be both beautiful and intelligent. By blending modern web experiences with server-side LLMs, we free businesses from repetitive overhead, building architectures that scale elegantly.",
+      eduLabel: "Academic Background",
+      specLabel: "Core Engineering Specialization",
+      bioTitle: "Our Engineering Creed",
+      bioText: "We believe exceptional software balances visual precision with backend resilience. By embedding autonomous AI agents directly into production architectures, we grant ambitious businesses an unfair operational advantage while removing mundane human busywork.",
     },
     partners: {
-      badge: "Active Projects • Co-creations",
-      title: "Solutions We Are Actively Building",
-      desc: "We are currently designing and developing secure architectures for leading companies across industrial maintenance and trading sectors.",
-      activeProject: "Project Under Active Development",
-      statusLabel: "System Status",
-      statusValue: "Building Core Infrastructure V1",
+      badge: "Selected Work • Portfolio",
+      title: "Completed Projects & Production Platforms",
+      desc: "Real production applications and bespoke digital platforms engineered with high standards of performance, responsive design, and security.",
+      activeProject: "Completed & Live Project",
+      statusLabel: "Project Status",
+      statusValue: "Delivered & Live in Production",
     },
     services: {
       badge: "Core Expertise • Services",
@@ -231,46 +378,49 @@ export const translations: Record<"en" | "ar", Translation> = {
       consultingDesc: "Providing architectural design, database design patterns, and scaling strategies to help businesses navigate modern tech landscapes.",
     },
     stats: {
-      badge: "Client Growth • Metrics",
-      title: "Trusted by Local Merchants & Small Businesses",
-      desc: "In addition to our large corporate partnerships, we pride ourselves on building premium websites and tools for independent local merchants.",
+      badge: "Proven Reliability • Metrics",
+      title: "Measurable Impact & Production Engineering",
+      desc: "We take immense pride in crafting resilient, scalable software systems that empower local and regional enterprises.",
       merchantsCount: "5+",
-      merchantsLabel: "Merchants & Local Businesses",
-      merchantsSub: "Independent store owners and merchants who launched their custom, tailored digital web presence with us.",
+      merchantsLabel: "Production Platforms Delivered",
+      merchantsSub: "Custom bespoke platforms engineered from scratch and deployed to production",
       deliveryCount: "100%",
       deliveryLabel: "Direct Production Delivery",
       deliverySub: "Hand-crafted, highly secure codebase strictly tailored to business needs with zero boilerplate bloat.",
       uptimeCount: "24/7",
-      uptimeLabel: "Continuous Server Reliability",
+      uptimeLabel: "Continuous System Reliability",
       uptimeSub: "Engineered with modern cloud setups to handle traffic growth and maintain high responsiveness around the clock.",
     },
     cta: {
-      badge: "Connect with us today",
-      title: "Let's translate your idea into intelligent systems",
-      subtitle: "Whether you need a sleek high-contrast web app, database orchestration, or custom AI pipeline integrations, we are ready to build it.",
-      formTitle: "Request Engineering Consultation",
-      formSubtitle: "Discuss technical constraints directly with the founding engineers to map out your implementation.",
-      name: "Your Name",
+      badge: "Direct Founders Hotline",
+      title: "Let's Engineer Your Next Digital Platform",
+      subtitle: "Speak directly with our founding engineers to map out technical architecture, or request an initial consultation on WhatsApp.",
+      formTitle: "Request Technical Consultation",
+      formSubtitle: "Fill out the project details and our lead architects will contact you within hours.",
+      name: "Your Name or Organization",
       phone: "Phone Number",
       email: "Email Address",
-      message: "Describe your project or vision",
+      message: "Project Requirements or Architecture Goals",
       service: "Primary System Needed",
-      servicePlaceholder: "Select primary system...",
-      serviceOption1: "Sleek, Responsive Web Application",
-      serviceOption2: "Custom AI Agents & Workflow Automation",
-      serviceOption3: "Backend Systems & Database Integration",
-      submit: "Submit Request",
+      servicePlaceholder: "Select primary architecture...",
+      serviceOption1: "Bespoke Web Platform or E-Commerce",
+      serviceOption2: "Autonomous AI Agents & Agentic Workflows",
+      serviceOption3: "Backend Infrastructure & Database Design",
+      submit: "Submit Consultation Request",
       cancel: "Cancel",
-      success: "Your request has been successfully submitted! Eng. Anas or Eng. Modather will reach out to you within 12 hours.",
+      success: "Your request has been received! Our founding engineers will follow up with you within hours.",
       close: "Close",
       officeHoursLabel: "Engineering Operations & Inquiry Hours",
       officeHoursValue: "Daily from 9:00 AM to 11:00 PM (UTC+2)",
+      whatsappCta: "Contact Us Directly on WhatsApp: 01028801508",
     },
     footer: {
-      desc: "We design and engineer bespoke web architectures and secure, goal-driven AI integrations for ambitious enterprises.",
-      links: "Navigation",
-      contact: "Direct Founders Hotline",
+      desc: "Engineering studio specializing in modern software platforms, bespoke web applications, and autonomous AI systems for forward-thinking enterprises.",
+      links: "Site Navigation",
+      contact: "Official Contact",
       allRightsReserved: "All rights reserved. Engineered and innovated by Agentic Net.",
+      phoneLabel: "Official Hotline & WhatsApp",
     },
   },
 };
+
