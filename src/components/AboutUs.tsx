@@ -1,4 +1,4 @@
-import { GraduationCap, CheckCircle2, MessageCircle, ArrowUpRight, ShieldCheck, Terminal, Award } from "lucide-react";
+import { GraduationCap, CheckCircle2, ArrowUpRight, ShieldCheck, Terminal, Award } from "lucide-react";
 import { translations } from "../translations";
 
 interface AboutUsProps {
@@ -14,20 +14,16 @@ export function AboutUs({ lang }: AboutUsProps) {
       role: lang === "ar" ? "شريك مؤسس • مهندس أنظمة خلفية وذكاء اصطناعي" : "Co-Founder · Systems & AI Architect",
       education: lang === "ar" ? "بكالوريوس علوم الحاسب" : "B.Sc. in Computer Science",
       specialization: lang === "ar" ? "معمارية الأنظمة الذكية والعملاء الوكلاء (Agentic Systems)" : "Autonomous Agent Architectures & Backend Infrastructure",
-      phone: "",
-      displayPhone: "",
-      whatsappNumber: "",
       imageSrc: "/WhatsApp Image 2026-07-17 at 10.31.02 PM.jpeg",
+      imagePosition: "object-[center_30%]",
     },
     {
       name: lang === "ar" ? "م. مدثر أسامة" : "Eng. Modather Osama",
       role: lang === "ar" ? "شريك مؤسس • مهندس أنظمة خلفية وذكاء اصطناعي" : "Co-Founder · Systems & AI Architect",
       education: lang === "ar" ? "بكالوريوس علوم الحاسب" : "B.Sc. in Computer Science",
       specialization: lang === "ar" ? "هندسة قواعد البيانات الموزعة وتكامل النماذج اللغوية" : "Distributed Database Engineering & LLM Orchestration",
-      phone: "+201028801508",
-      displayPhone: "01028801508",
-      whatsappNumber: "201028801508",
       imageSrc: "/WhatsApp Image 2026-07-18 at 2.48.52 AM.jpeg",
+      imagePosition: "object-top",
     },
   ];
 
@@ -88,7 +84,7 @@ export function AboutUs({ lang }: AboutUsProps) {
                       src={member.imageSrc}
                       alt={member.name}
                       referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover object-top"
+                      className={`w-full h-full object-cover ${member.imagePosition}`}
                       loading="lazy"
                     />
                   </div>
@@ -116,33 +112,6 @@ export function AboutUs({ lang }: AboutUsProps) {
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Direct WhatsApp Contact */}
-              <div className="pt-3.5 border-t border-white/[0.08] flex items-center justify-between flex-wrap gap-2 text-xs">
-                {member.whatsappNumber ? (
-                  <a
-                    href={`https://wa.me/${member.whatsappNumber}?text=${encodeURIComponent(
-                      lang === "ar"
-                        ? `السلام عليكم م. ${member.name.replace("م. ", "")}، أود مناقشة مشروع برمجي جديد معكم عبر موقع Agentik Net.`
-                        : `Hello Eng. ${member.name.replace("Eng. ", "")}, I would like to discuss a software project with Agentik Net.`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-medium transition-colors w-full sm:w-auto min-h-[40px] cursor-pointer"
-                  >
-                    <MessageCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span>{lang === "ar" ? `واتساب: ${member.displayPhone}` : `WhatsApp: ${member.displayPhone}`}</span>
-                  </a>
-                ) : (
-                  <span className="text-slate-500 text-xs font-mono">
-                    {lang === "ar" ? "التواصل عبر القناة الرسمية" : "Official Hotline"}
-                  </span>
-                )}
-
-                <span className="text-[10px] font-mono text-slate-400 hidden sm:inline">
-                  Computer Science
-                </span>
               </div>
 
             </div>

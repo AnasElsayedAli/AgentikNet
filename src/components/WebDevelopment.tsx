@@ -1,4 +1,4 @@
-import { Globe, ShoppingCart, Server, LayoutDashboard, Shield, Zap, ArrowUpRight, Check, MessageCircle } from "lucide-react";
+import { Globe, ShoppingCart, Server, LayoutDashboard, ArrowUpRight, MessageCircle } from "lucide-react";
 import { translations } from "../translations";
 
 interface WebDevelopmentProps {
@@ -15,48 +15,44 @@ export function WebDevelopment({ lang }: WebDevelopmentProps) {
       icon: <ShoppingCart className="w-5 h-5 text-sky-400" />,
       title: lang === "ar" ? "منصات التجارة الإلكترونية المخصصة" : "Bespoke E-Commerce Platforms",
       desc: lang === "ar"
-        ? "نبني متاجر إلكترونية رقمية سريعة الاستجابة، تتضمن سلال تسوق ديناميكية، تجربة تصفح فورية، وتكامل بوابات دفع إلكترونية مؤمنة مع إدارة دقيقة للمخزون والطلبات."
-        : "Engineered for high conversion: custom shopping carts, seamless checkout flows, secure payment gateway integrations, and real-time inventory management.",
+        ? "متاجر إلكترونية سهلة الاستخدام مع دفع آمن وإدارة للمخزون."
+        : "Online stores with smooth checkout, secure payments, and inventory management.",
       features: lang === "ar"
-        ? ["سلال تسوق ديناميكية وتجربة فورية", "بوابات دفع إلكترونية مؤمنة ومعتمدة", "إدارة متطورة للمخزون والكتالوجات", "تصميم متجاوب 100% مع الجوال"]
-        : ["Dynamic client-side cart states", "PCI-compliant payment gateways", "Real-time stock & catalog sync", "Fluid mobile-first checkout flows"],
-      tags: ["E-Commerce", "Payments", "Dynamic Cart", "Mobile-First"],
+        ? ["سلة وطلب مبسطان", "دفع آمن", "مخزون محدث"]
+        : ["Simple cart and checkout", "Secure payments", "Live inventory"],
     },
     {
       id: "portals",
       icon: <Globe className="w-5 h-5 text-sky-400" />,
       title: lang === "ar" ? "تطبيقات الويب وبوابات الأعمال (B2B / SaaS)" : "Custom Web Applications & B2B Portals",
       desc: lang === "ar"
-        ? "بناء بوابات أعمال مؤسسية متقدمة لرقمنة العمليات التشغيلية، بوابات الموردين، وإدارة العملاء مع أنظمة صلاحيات دقيقة ومستويات أمان مشددة."
-        : "Enterprise-grade digital portals digitizing supplier logistics, B2B procurement pipelines, and customer management with granular access control.",
+        ? "بوابات رقمية للعملاء والموردين والفرق الداخلية بصلاحيات واضحة."
+        : "Digital portals for clients, suppliers, and internal teams with role-based access.",
       features: lang === "ar"
-        ? ["بوابات عملاء وموردين مخصصة", "صلاحيات مستخدمين متعددة المستويات (RBAC)", "تحديث فوري لحالة المعاملات", "واجهات فائقة السرعة بـ TypeScript"]
-        : ["Bespoke client & partner portals", "Role-based access matrix (RBAC)", "Real-time state synchronization", "Type-safe robust frontends"],
-      tags: ["Enterprise Portals", "RBAC", "TypeScript", "Real-Time"],
+        ? ["بوابات عملاء وموردين", "صلاحيات حسب الدور", "تحديثات لحظية"]
+        : ["Client and supplier portals", "Role-based access", "Real-time updates"],
     },
     {
       id: "backend",
       icon: <Server className="w-5 h-5 text-sky-400" />,
       title: lang === "ar" ? "الأنظمة الخلفية وقواعد البيانات (PostgreSQL)" : "Backend Infrastructure & Database Architecture",
       desc: lang === "ar"
-        ? "خوادم مستقرة وواجهات برمجة تطبيقات (REST APIs) سريعة، وهندسة قواعد بيانات علائقية متطورة (PostgreSQL) مصممة لتحمل ضغط آلاف المعاملات المتزامنة."
-        : "High-throughput APIs, normalized relational databases, and microservices engineered to handle concurrent transactions without latency or data loss.",
+        ? "واجهات API وقواعد بيانات آمنة مصممة لمعاملات موثوقة."
+        : "Secure APIs and databases built for reliable, scalable transactions.",
       features: lang === "ar"
-        ? ["قواعد بيانات علائقية موثوقة (PostgreSQL)", "واجهات برمجة سريعة الاستجابة (REST APIs)", "تشفير شامل للبيانات الحساسة", "معمارية سحابية تضمن استمرارية العمل"]
-        : ["ACID-compliant PostgreSQL schemas", "Low-latency RESTful endpoints", "End-to-end data encryption", "Resilient cloud failover pipelines"],
-      tags: ["PostgreSQL", "Scalable APIs", "Data Integrity", "Security"],
+        ? ["قواعد بيانات PostgreSQL", "واجهات REST API", "حماية واستمرارية"]
+        : ["PostgreSQL databases", "REST APIs", "Security and reliability"],
     },
     {
       id: "dashboards",
       icon: <LayoutDashboard className="w-5 h-5 text-sky-400" />,
       title: lang === "ar" ? "لوحات التحكم والربط مع الخدمات الخارجية" : "Admin Dashboards & 3rd-Party Integrations",
       desc: lang === "ar"
-        ? "لوحات إدارة شاملة للبيانات والتحليلات الحية، وربط سلس عبر Webhooks وAPIs مع مختلف خدمات الطرف الثالث، أنظمة الشحن، والإشعارات التلقائية."
-        : "Comprehensive mission-control dashboards, real-time business telemetry, automated invoice processing, and webhooks connecting directly to ERP systems.",
+        ? "لوحات وتقارير تربط أنظمتك بخدمات الشحن والدفع وغيرها."
+        : "Dashboards and integrations connecting your tools, services, and operations.",
       features: lang === "ar"
-        ? ["لوحات تحكم تفاعلية متكاملة", "ربط بوابات الشحن والرسائل القصيرة", "تصدير ومعالجة التقارير الحية", "أتمتة الفواتير والإشعارات"]
-        : ["Live operational analytics", "Shipping & SMS webhook integration", "Automated invoice parsing", "Multi-platform data syncing"],
-      tags: ["Dashboards", "Webhooks", "ERP Integrations", "Analytics"],
+        ? ["لوحات متابعة مباشرة", "تكاملات Webhooks وERP", "تقارير وإشعارات آلية"]
+        : ["Live dashboards", "Webhook and ERP integrations", "Automated reports and alerts"],
     },
   ];
 
@@ -96,36 +92,23 @@ export function WebDevelopment({ lang }: WebDevelopmentProps) {
           {CAPABILITY_AREAS.map((item) => (
             <div
               key={item.id}
-              className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-6 lg:p-7 flex flex-col justify-between hover:border-sky-500/30 transition-all duration-300"
+              className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-6 flex flex-col hover:border-sky-500/30 transition-all duration-300"
             >
               <div>
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-10 h-10 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center shrink-0">
                     {item.icon}
                   </div>
-                  <div className="text-[11px] font-mono text-slate-500 flex items-center gap-1.5">
-                    {item.tags.slice(0, 2).map((tg, i) => (
-                      <span key={i}>
-                        {tg} {i === 0 && <span className="text-slate-700">·</span>}
-                      </span>
-                    ))}
-                  </div>
+                  <h3 className="text-lg font-display font-bold text-white leading-snug">{item.title}</h3>
                 </div>
 
-                <h3 className="text-xl font-display font-bold text-white tracking-tight mb-3">
-                  {item.title}
-                </h3>
-
-                <p className="text-sm text-slate-300 leading-relaxed mb-6 font-normal">
+                <p className="text-sm text-slate-300 leading-relaxed mb-4 line-clamp-2">
                   {item.desc}
                 </p>
 
-                <div className="space-y-2.5 pt-4 border-t border-white/[0.06]">
+                <div className="flex flex-wrap gap-2">
                   {item.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-start gap-2.5 text-xs text-slate-300">
-                      <Check className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
-                      <span>{feat}</span>
-                    </div>
+                    <span key={fIdx} className="rounded-full border border-sky-400/15 bg-sky-400/[0.06] px-3 py-1 text-xs text-slate-300">{feat}</span>
                   ))}
                 </div>
               </div>

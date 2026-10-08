@@ -19,8 +19,6 @@ import WhatsAppWidget from "./components/WhatsAppWidget";
 
 export default function App() {
   const [lang, setLang] = useState<"en" | "ar">("en");
-  const [isFormOpen, setIsFormOpen] = useState(false);
-  const [inquiryServiceContext, setInquiryServiceContext] = useState("");
 
   const seoByLang = {
     ar: {
@@ -87,15 +85,8 @@ export default function App() {
     upsertLink("alternate", pageUrl, "ar");
   }, [lang]);
 
-  const handleOpenConsultation = (serviceType = "") => {
-    setInquiryServiceContext(serviceType);
-    setIsFormOpen(true);
+  const handleOpenConsultation = () => {
     handleNavigateTo("contact");
-  };
-
-  const handleCloseConsultation = () => {
-    setIsFormOpen(false);
-    setInquiryServiceContext("");
   };
 
   const handleNavigateTo = (sectionId: string) => {
@@ -135,13 +126,13 @@ export default function App() {
       {/* 4. Software & Web Development Capabilities */}
       <WebDevelopment
         lang={lang}
-        onOpenConsultation={() => handleOpenConsultation("web")}
+        onOpenConsultation={handleOpenConsultation}
       />
 
       {/* 5. AI & Agentic AI Capabilities */}
       <AgenticAI
         lang={lang}
-        onOpenConsultation={() => handleOpenConsultation("ai")}
+        onOpenConsultation={handleOpenConsultation}
       />
 
       {/* 6. Selected Work / Portfolio (Preserving all 3 real projects) */}
@@ -159,14 +150,8 @@ export default function App() {
         lang={lang}
       />
 
-      {/* 9. Contact / Consultation Form & Primary WhatsApp Hotline */}
-      <CTA
-        lang={lang}
-        isFormOpen={isFormOpen}
-        onOpenForm={() => handleOpenConsultation()}
-        onCloseForm={handleCloseConsultation}
-        serviceTypeDefault={inquiryServiceContext}
-      />
+      {/* 9. Contact & Primary WhatsApp Hotline */}
+      <CTA lang={lang} />
 
       {/* 10. Regulatory Corporate Agency Footer */}
       <Footer

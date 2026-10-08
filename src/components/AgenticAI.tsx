@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Bot, Cpu, Zap, Database, ArrowUpRight, CheckCircle2, MessageSquare, Terminal, FileText, Sparkles, MessageCircle } from "lucide-react";
+import { Bot, Zap, Database, ArrowUpRight, Terminal, FileText, MessageCircle } from "lucide-react";
 import { translations } from "../translations";
 
 interface AgenticAIProps {
@@ -17,92 +17,92 @@ export function AgenticAI({ lang }: AgenticAIProps) {
       icon: <Bot className="w-5 h-5 text-emerald-400" />,
       title: lang === "ar" ? "وكلاء ذكاء اصطناعي ذاتيون (AI Agents)" : "Autonomous AI Agents",
       desc: lang === "ar"
-        ? "أنظمة برمجية تفهم السياق، وتتخذ القرارات الذاتية، وتنفذ إجراءات حقيقية مثل الرد على العملاء وتوجيه الطلبات عبر واتساب والويب على مدار الساعة."
-        : "Goal-oriented software agents that understand nuance, autonomously qualify leads, and handle multi-turn customer conversations over WhatsApp and web 24/7.",
+        ? "وكلاء يردون على العملاء ويعالجون الطلبات عبر واتساب والويب."
+        : "Agents that handle customer requests across WhatsApp and web.",
       deliverables: lang === "ar"
-        ? ["اتخاذ قرارات ذاتي ومبرر", "تكامل واتساب المباشر (24/7)", "توجيه العملاء المحتملين وتأهيلهم"]
-        : ["Autonomous decision-making logic", "Direct WhatsApp API integration", "Inbound lead qualification pipelines"],
+        ? ["ردود تلقائية", "تأهيل العملاء", "تكامل مباشر مع واتساب"]
+        : ["Automated responses", "Lead qualification", "WhatsApp integration"],
     },
     {
       icon: <Zap className="w-5 h-5 text-emerald-400" />,
       title: lang === "ar" ? "أتمتة الأعمال وسلاسل الإجراءات (Agentic Workflows)" : "Agentic Workflows & Automation",
       desc: lang === "ar"
-        ? "ربط سير العمليات المتعددة تلقائياً؛ عند وقوع حدث ما، يقوم الوكيل بالتحقق من البيانات، وتحديث النظام، وإرسال التقارير دون انتظار أي تدخل بشري."
-        : "Event-driven operational pipelines: when an event occurs, agents validate schemas, query inventories, and dispatch updates with zero manual lag.",
+        ? "أتمتة المهام وربط الأنظمة عند وقوع الأحداث، دون إدخال يدوي."
+        : "Automate routine tasks and connect systems when events occur.",
       deliverables: lang === "ar"
-        ? ["أتمتة العمليات الإدارية المتكررة", "تقليل الأخطاء البشرية بنسبة 99%", "مزامنة لحظية بين الأنظمة المختلفة"]
-        : ["End-to-end repetitive task elimination", "Zero human transcription errors", "Real-time cross-system synchronization"],
+        ? ["مهام متكررة أقل", "أخطاء إدخال أقل", "مزامنة بين الأنظمة"]
+        : ["Fewer repetitive tasks", "Fewer manual errors", "Cross-system sync"],
     },
     {
       icon: <Database className="w-5 h-5 text-emerald-400" />,
       title: lang === "ar" ? "تأريض البيانات واسترجاع المعرفة (RAG)" : "Retrieval-Augmented Generation (RAG)",
       desc: lang === "ar"
-        ? "ربط نماذج الذكاء الاصطناعي بكتالوجاتك، ومستنداتك الداخلية، وسياسات شركتك لتقديم إجابات دقيقة وموثوقة خالية تماماً من الهلوسة."
-        : "Grounding large language models directly into your company catalogs, internal manuals, and databases for 100% hallucination-free, verifiable output.",
+        ? "إجابات تستند إلى مستندات شركتك وكتالوجاتها مع إظهار المصادر."
+        : "Answers grounded in your company documents and catalogs, with sources.",
       deliverables: lang === "ar"
-        ? ["فهارس متجهات (Vector Indexes) مخصصة", "تأريض كامل ببيانات شركتك", "إجابات موثوقة ومحددة المصادر"]
-        : ["Deterministic vector search index", "Proprietary catalog & data grounding", "100% verifiable source citations"],
+        ? ["بحث في بياناتك", "مصادر واضحة"]
+        : ["Search across your data", "Source references"],
     },
     {
       icon: <FileText className="w-5 h-5 text-emerald-400" />,
       title: lang === "ar" ? "مساعدون داخليون وأدوات استخراج البيانات" : "Internal Copilots & Extraction Tools",
       desc: lang === "ar"
-        ? "أدوات ذكاء اصطناعي مخصصة لفريق عملك لاستخراج البيانات من المستندات والفواتير غير المنظمة، وتحليل التقارير وصياغة المراسلات فورياً."
-        : "Custom internal tools for your team: automated data extraction from unstructured invoices, contract summarization, and intelligent operational copilots.",
+        ? "أدوات تستخرج بيانات الفواتير وتلخص المستندات لفريقك."
+        : "Tools that extract invoice data and summarize documents for your team.",
       deliverables: lang === "ar"
-        ? ["استخراج بيانات الفواتير والمستندات", "تلخيص العقود والتقارير الفنية", "توفير ساعات عمل أسبوعية للفريق"]
-        : ["Automated invoice entity extraction", "Contract & report summarization", "Dozens of administrative hours saved weekly"],
+        ? ["استخراج بيانات", "تلخيص مستندات"]
+        : ["Data extraction", "Document summaries"],
     },
   ];
 
   const SIMULATION_FLOWS = [
     {
       title: lang === "ar" ? "وكيل خدمة العملاء الذاتي عبر واتساب" : "Autonomous WhatsApp Lead Agent",
-      subtitle: lang === "ar" ? "استفسار توريدات صناعية وارد" : "Inbound Industrial Supply Inquiry",
+      subtitle: lang === "ar" ? "استفسار عن منتج" : "Product inquiry",
       inputPrompt: lang === "ar"
-        ? "العميل: 'السلام عليكم، أحتاج معرفة أسعار صمامات الضغط وموعد التسليم المتاح لـ 50 وحدة.'"
-        : "Client: 'Hello, need quotation for 50 high-pressure valves and available dispatch timeframe.'",
+        ? "العميل: أحتاج 50 صمام ضغط. ما السعر وموعد التسليم؟"
+        : "Client: Need 50 pressure valves. What is the price and delivery time?",
       reasoning: [
-        lang === "ar" ? "1. استخراج الكيان: 50 وحدة صمامات ضغط عالي" : "1. Entity Extracted: 50 High-Pressure Valves",
-        lang === "ar" ? "2. استعلام المخزون: 120 وحدة متاحة بالمستودع المركزي" : "2. Inventory DB Query: 120 units in central stock",
-        lang === "ar" ? "3. حساب السعر وتوليد عرض السعر الرسمي تلقائياً" : "3. Pricing Matrix Evaluated -> Quote ID: #QT-894 generated",
+        lang === "ar" ? "تحديد المنتج والكمية" : "Identify product and quantity",
+        lang === "ar" ? "التحقق من المخزون" : "Check inventory",
+        lang === "ar" ? "إرسال السعر وموعد التسليم" : "Send price and delivery time",
       ],
       outputResult: lang === "ar"
-        ? "تم الرد فوراً عبر واتساب: 'وعليكم السلام، مرحباً بك! الوحدات متوفرة فوراً في مستودعنا بسعر 480 ج.م للوحدة، مع إمكانية الشحن خلال 24 ساعة. تم إرسال ملف العرض الرسمي #QT-894 إلى بريدكم المسجل.'"
-        : "Dispatched via WhatsApp: 'Hello! 50 units available immediately at $48/unit. Dispatch ready within 24 hours. Formal quote #QT-894 has been routed to your registered contact.'",
-      metrics: lang === "ar" ? "زمن الاستجابة: 86ms · تم تحويل المعاملة بنجاح" : "Latency: 86ms · Lead Qualified & Reconciled",
+        ? "تم إرسال السعر والتوفر للعميل عبر واتساب."
+        : "Price and availability sent to the customer via WhatsApp.",
+      metrics: lang === "ar" ? "رد خلال 86 مللي ثانية" : "86ms response",
     },
     {
       title: lang === "ar" ? "أتمتة مزامنة المخزون وسلاسل التوريد" : "ERP & Supply Chain Automation Pipeline",
-      subtitle: lang === "ar" ? "تحديث تلقائي للموردين" : "Automated Supplier Inventory Ingestion",
+      subtitle: lang === "ar" ? "تحديث المخزون" : "Inventory update",
       inputPrompt: lang === "ar"
-        ? "إشعار Webhook وارد من المورد: 'تحديث أسعار وكميات 140 صنفاً جديداً في النظام.'"
-        : "Inbound Supplier Webhook: '140 inventory SKU updates across regional logistics nodes.'",
+        ? "المورد يرسل تحديثًا للأسعار والكميات."
+        : "Supplier sends updated prices and quantities.",
       reasoning: [
-        lang === "ar" ? "1. فحص صحة البيانات والتحقق من الأرقام التسلسلية" : "1. Schema validation against product catalog",
-        lang === "ar" ? "2. تنفيذ معاملة مجمعة في قاعدة بيانات PostgreSQL" : "2. Executing batch transaction on PostgreSQL",
-        lang === "ar" ? "3. إرسال ملخص الفروقات لمدير المشتريات تلقائياً" : "3. Triggering webhook alert for price variations",
+        lang === "ar" ? "التحقق من البيانات" : "Validate data",
+        lang === "ar" ? "تحديث قاعدة البيانات" : "Update database",
+        lang === "ar" ? "إشعار الفريق بالتغييرات" : "Notify the team",
       ],
       outputResult: lang === "ar"
-        ? "تمت المعالجة بنجاح: تحديث 140 صنفاً بنسبة دقة 100% دون تدخل يدوي، وتنبيه فرق المبيعات بالأسعار الجديدة."
-        : "Completed: 140 items updated across databases with 100% reconciliation accuracy. Zero manual spreadsheet copying.",
-      metrics: lang === "ar" ? "معالجة 100% من السجلات دون أخطاء يدوية" : "100% Data Accuracy · Zero Human Delay",
+        ? "تم تحديث المخزون وإشعار الفريق."
+        : "Inventory updated and team notified.",
+      metrics: lang === "ar" ? "دون إدخال يدوي" : "No manual entry",
     },
     {
       title: lang === "ar" ? "استخراج بيانات الفواتير والمستندات" : "Unstructured Document & Invoice Extraction",
-      subtitle: lang === "ar" ? "معالجة الفواتير الإلكترونية تلقائياً" : "OCR & Structured Schema Parsing",
+      subtitle: lang === "ar" ? "معالجة الفواتير" : "Invoice processing",
       inputPrompt: lang === "ar"
-        ? "مستند PDF غير منظم وارد عبر البريد: فاتورة توريد مواد خام تحتوي على بنود مبعثرة."
-        : "Inbound raw PDF invoice with mixed line items, tax numbers, and payment terms.",
+        ? "فاتورة PDF تحتوي على أصناف وضرائب وإجمالي."
+        : "PDF invoice with line items, taxes, and total.",
       reasoning: [
-        lang === "ar" ? "1. استخراج النصوص والجداول عبر خوارزميات الرؤية الذكية" : "1. High-precision OCR & table layout parsing",
-        lang === "ar" ? "2. مطابقة البنود الضريبية والمجاميع الرياضية" : "2. Validating line items against total gross amount",
-        lang === "ar" ? "3. تصدير مخرجات JSON نظيفة للنظام المحاسبي" : "3. Emitting structured JSON payload into accounting API",
+        lang === "ar" ? "استخراج البنود والضرائب" : "Extract items and taxes",
+        lang === "ar" ? "مراجعة الإجمالي" : "Verify total",
+        lang === "ar" ? "إرسال البيانات للمحاسبة" : "Send data to accounting",
       ],
       outputResult: lang === "ar"
-        ? "تم تحويل الفاتورة إلى سجل منظم وإضافتها مباشرة إلى الحسابات في أقل من ثانيتين."
-        : "Converted raw document into type-safe schema and posted directly into enterprise accounts in under 2 seconds.",
-      metrics: lang === "ar" ? "وفر 15 دقيقة لكل فاتورة مورد" : "15 Minutes Saved Per Document",
+        ? "استخرج النظام بيانات الفاتورة وأرسلها للمحاسبة."
+        : "Invoice data extracted and sent to accounting.",
+      metrics: lang === "ar" ? "معالجة أسرع للفواتير" : "Faster invoice processing",
     },
   ];
 
@@ -143,35 +143,25 @@ export function AgenticAI({ lang }: AgenticAIProps) {
           {AGENT_CAPABILITIES.map((cap, idx) => (
             <div
               key={idx}
-              className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-6 lg:p-7 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-300"
+              className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-6 flex flex-col hover:border-emerald-500/30 transition-all duration-300"
             >
               <div>
-                <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
                   {cap.icon}
+                  </div>
+                  <h3 className="text-lg font-display font-bold text-white leading-snug">{cap.title}</h3>
                 </div>
 
-                <h3 className="text-xl font-display font-bold text-white tracking-tight mb-3">
-                  {cap.title}
-                </h3>
-
-                <p className="text-sm text-slate-300 leading-relaxed mb-6 font-normal">
+                <p className="text-sm text-slate-300 leading-relaxed mb-4 line-clamp-2">
                   {cap.desc}
                 </p>
 
-                <div className="space-y-2.5 pt-4 border-t border-white/[0.06] mb-4">
+                <div className="flex flex-wrap gap-2">
                   {cap.deliverables.map((d, dIdx) => (
-                    <div key={dIdx} className="flex items-start gap-2.5 text-xs text-slate-300">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                      <span>{d}</span>
-                    </div>
+                    <span key={dIdx} className="rounded-full border border-emerald-400/15 bg-emerald-400/[0.06] px-3 py-1 text-xs text-slate-300">{d}</span>
                   ))}
                 </div>
-              </div>
-
-              <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between">
-                <span className="text-[11px] text-slate-400">
-                  {lang === "ar" ? "تطوير مخصص للشركات" : "Custom Enterprise Pipeline"}
-                </span>
               </div>
             </div>
           ))}
@@ -183,7 +173,7 @@ export function AgenticAI({ lang }: AgenticAIProps) {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 sm:pb-6 border-b border-white/[0.08] mb-6 sm:mb-8 gap-4">
             <div>
               <h3 className="text-lg sm:text-xl font-display font-bold text-white tracking-tight">
-                {lang === "ar" ? "كيف يعمل الوكيل الذكي في بيئة العمل الفعلية؟" : "How Our Agents Execute in Real Business Operations"}
+                {lang === "ar" ? "كيف يعمل الوكيل؟" : "How the agent works"}
               </h3>
             </div>
 
@@ -252,16 +242,11 @@ export function AgenticAI({ lang }: AgenticAIProps) {
                   {currentFlow.outputResult}
                 </div>
 
-                <p className="text-xs text-slate-400 leading-relaxed mb-6">
-                  {lang === "ar"
-                    ? "يقوم الوكيل بالربط المباشر مع واجهات WhatsApp الرسمية وقواعد بياناتك، مما يتيح لك خدمة مئات العملاء والطلبات لحظياً دون توظيف فريق دعم إضافي."
-                    : "The agent interfaces directly with official WhatsApp endpoints and your database schemas, allowing you to qualify and convert client demand instantly."}
-                </p>
               </div>
 
               <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
                 <span className="text-xs text-slate-300 font-medium">
-                  {lang === "ar" ? "هل ترغب في تطبيق هذا النموذج في أعمالك؟" : "Ready to automate this workflow in your business?"}
+                  {lang === "ar" ? "هل تريد أتمتة مهامك؟" : "Ready to automate a workflow?"}
                 </span>
                 <a
                   href={whatsappUrl}

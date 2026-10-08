@@ -1,4 +1,4 @@
-import { Code2, Bot, Layers, ArrowUpRight, Cpu, CheckCircle2 } from "lucide-react";
+import { Code2, Bot, ArrowUpRight } from "lucide-react";
 
 interface CoreOverviewProps {
   lang: "en" | "ar";
@@ -9,58 +9,54 @@ export function CoreOverview({ lang, onNavigateTo }: CoreOverviewProps) {
   const content = {
     ar: {
       kicker: "فلسفة العمل الهندسي • Core Philosophy",
-      title: "الجمع بين دقة هندسة البرمجيات وذكاء الأنظمة الوكيلة",
-      desc: "ندرك أن الشركات المعاصرة لا تبحث عن قوالب مكررة أو أدوات ذكاء اصطناعي استعراضية، بل تحتاج إلى حلول برمجية حقيقية تزيد الإيرادات وتختصر ساعات العمل التشغيلي.",
+      title: "برمجيات عملية وذكاء اصطناعي يخدم أعمالك",
+      desc: "نبني منصات موثوقة وأتمتة ذكية تقلل العمل اليدوي وتدعم نمو أعمالك.",
       pillar1: {
         title: "هندسة البرمجيات وتطبيقات الويب",
         subtitle: "Full-Stack Software Architecture",
-        desc: "نبني منصات ويب وتطبيقات سريعة الاستجابة، ونربط قواعد البيانات الموزعة وبوابات الدفع الإلكترونية لتوفير تجربة مستخدم سلسة وموثوقة بنسبة 100%.",
+        desc: "متاجر وبوابات أعمال وخدمات خلفية مصممة للأداء والأمان.",
         capabilities: [
-          "متاجر إلكترونية متطورة بسلال تسوق تفاعلية وفورية",
-          "بوابات مؤسسية (B2B) لإدارة الموردين والعمليات الداخلية",
-          "أنظمة خلفية وقواعد بيانات علائقية مشفرة ومؤمنة",
-          "واجهات برمجية (REST APIs) سريعة الاستجابة ومحمية",
+          "متاجر ومدفوعات آمنة",
+          "بوابات B2B للعملاء والموردين",
+          "واجهات API وقواعد بيانات موثوقة",
         ],
-        action: "استكشف خدمات تطوير الويب",
+        action: "استكشف تطوير البرمجيات",
       },
       pillar2: {
         title: "الأنظمة الذاتية والوكلاء الأذكياء",
         subtitle: "Autonomous Agentic AI Systems",
-        desc: "نطور وكلاء ذكاء اصطناعي يتجاوزون مجرد المحادثات العامة؛ حيث يقومون باستيعاب سياق شركتك، والرد على العملاء عبر واتساب، وأتمتة سلاسل الإجراءات.",
+        desc: "وكلاء يردون على العملاء، ويبحثون في بيانات شركتك، وينفذون المهام تلقائيًا.",
         capabilities: [
-          "وكلاء خدمة عملاء ومبيعات يعملون على مدار الساعة عبر واتساب",
-          "أتمتة سلاسل المهام المعقدة (Multi-Step Workflows) دون خطأ بشري",
-          "تأريض نماذج اللغة (RAG) على كتالوجاتك وبياناتك الخاصة",
-          "أدوات استخراج البيانات وتلخيص المستندات والفواتير آلياً",
+          "خدمة عملاء عبر واتساب والويب",
+          "أتمتة المهام المتكررة",
+          "مساعدون للبحث في بياناتك ومستنداتك",
         ],
         action: "استكشف حلول الذكاء الاصطناعي",
       },
     },
     en: {
       kicker: "Engineering Creed · Dual Capability",
-      title: "Software Craftsmanship Meets Autonomous Intelligence",
-      desc: "We understand that ambitious companies do not need cosmetic templates or superficial AI hype. They need battle-tested production systems that directly reduce operational costs and accelerate revenue.",
+      title: "Practical software and AI for your business",
+      desc: "We build reliable platforms and intelligent automation that reduce manual work and support growth.",
       pillar1: {
         title: "Full-Stack Software & Web Systems",
         subtitle: "Production-Grade Engineering",
-        desc: "We engineer bespoke, low-latency web platforms, transactional e-commerce engines, secure payment gateways, and normalized database schemas.",
+        desc: "Web platforms, business portals, and secure backends built for performance.",
         capabilities: [
-          "High-performance bespoke e-commerce platforms with dynamic checkout",
-          "Enterprise B2B portals with role-based access & supplier workflows",
-          "Hardened PostgreSQL databases with ACID transaction guarantees",
-          "Type-safe RESTful APIs engineered for zero-latency execution",
+          "Custom stores and secure payments",
+          "B2B portals for clients and suppliers",
+          "Reliable APIs and databases",
         ],
-        action: "Explore Web Engineering",
+        action: "Explore Software Services",
       },
       pillar2: {
         title: "Autonomous Agentic AI Architectures",
         subtitle: "Goal-Oriented Intelligent Execution",
-        desc: "We build autonomous software agents that don't just chat; they perceive intent, query databases, make operational decisions, and take actions on your behalf.",
+        desc: "Agents that answer customers, search your data, and automate routine tasks.",
         capabilities: [
-          "24/7 autonomous sales & support agents over WhatsApp and web",
-          "Multi-step automated workflows with zero human operational lag",
-          "Retrieval-Augmented Generation (RAG) grounded in your catalogs",
-          "Automated invoice data extraction & operational document copilots",
+          "Customer support across WhatsApp and web",
+          "Automated repetitive workflows",
+          "AI assistants grounded in your business data",
         ],
         action: "Explore Agentic AI",
       },
@@ -85,30 +81,22 @@ export function CoreOverview({ lang, onNavigateTo }: CoreOverviewProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
           
           {/* Pillar 1: Web & Software Engineering */}
-          <div className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-6 lg:p-7 flex flex-col justify-between hover:border-sky-500/30 transition-all duration-300 group">
+          <div className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-6 flex flex-col hover:border-sky-500/30 transition-all duration-300 group">
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-10 h-10 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center shrink-0">
                   <Code2 className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[10px] font-mono text-sky-400 mb-0.5">{content.pillar1.subtitle}</p>
+                  <h3 className="text-lg font-display font-bold text-white leading-snug">{content.pillar1.title}</h3>
                 </div>
               </div>
 
-              <div className="text-xs font-mono text-sky-400 mb-1">
-                {content.pillar1.subtitle}
-              </div>
-              <h3 className="text-lg sm:text-xl font-display font-bold text-white tracking-tight mb-2.5">
-                {content.pillar1.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 font-normal">
-                {content.pillar1.desc}
-              </p>
-
-              <div className="space-y-2 pt-3 border-t border-white/[0.06] mb-5">
-                {content.pillar1.capabilities.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </div>
+              <p className="text-sm text-slate-300 leading-relaxed mb-4">{content.pillar1.desc}</p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                {content.pillar1.capabilities.map((item) => (
+                  <span key={item} className="rounded-full border border-sky-400/15 bg-sky-400/[0.06] px-3 py-1 text-xs text-slate-300">{item}</span>
                 ))}
               </div>
             </div>
@@ -123,30 +111,22 @@ export function CoreOverview({ lang, onNavigateTo }: CoreOverviewProps) {
           </div>
 
           {/* Pillar 2: Agentic AI Systems */}
-          <div className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-6 lg:p-7 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-300 group">
+          <div className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-6 flex flex-col hover:border-emerald-500/30 transition-all duration-300 group">
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
                   <Bot className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[10px] font-mono text-emerald-400 mb-0.5">{content.pillar2.subtitle}</p>
+                  <h3 className="text-lg font-display font-bold text-white leading-snug">{content.pillar2.title}</h3>
                 </div>
               </div>
 
-              <div className="text-xs font-mono text-emerald-400 mb-1">
-                {content.pillar2.subtitle}
-              </div>
-              <h3 className="text-lg sm:text-xl font-display font-bold text-white tracking-tight mb-2.5">
-                {content.pillar2.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 font-normal">
-                {content.pillar2.desc}
-              </p>
-
-              <div className="space-y-2 pt-3 border-t border-white/[0.06] mb-5">
-                {content.pillar2.capabilities.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </div>
+              <p className="text-sm text-slate-300 leading-relaxed mb-4">{content.pillar2.desc}</p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                {content.pillar2.capabilities.map((item) => (
+                  <span key={item} className="rounded-full border border-emerald-400/15 bg-emerald-400/[0.06] px-3 py-1 text-xs text-slate-300">{item}</span>
                 ))}
               </div>
             </div>

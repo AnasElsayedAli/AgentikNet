@@ -144,8 +144,8 @@ export const translations: Record<"en" | "ar", Translation> = {
     },
     webDevSection: {
       badge: "تطوير الويب والبرمجيات المتكاملة",
-      title: "برمجيات إنتاجية متماسكة، وليست مجرد صفحات هبوط",
-      desc: "نمتلك القدرة الهندسية لبناء أنظمة تقنية متكاملة ومستقرة، من واجهات المستخدم فائقة السرعة وحتى الخوادم وقواعد البيانات المحمية.",
+      title: "تطوير ويب وأنظمة أعمال متكاملة",
+      desc: "من المتاجر الإلكترونية إلى قواعد البيانات، نبني أنظمة سريعة وآمنة قابلة للتوسع.",
       cards: [
         {
           title: "منصات التجارة الإلكترونية المخصصة",
@@ -171,8 +171,8 @@ export const translations: Record<"en" | "ar", Translation> = {
     },
     aiSection: {
       badge: "هندسة الأنظمة الوكيلة • Agentic AI",
-      title: "وكلاء ذكاء اصطناعي يعملون ذاتياً وينجزون المهام الفعلية",
-      desc: "نتجاوز مجرد نماذج المحادثة السطحية؛ نبني وكلاء أذكياء يتخذون القرارات، ويتفاعلون مع قواعد بياناتك وأنظمتك التشغيلية لتنفيذ مهام حقيقية بكفاءة متناهية.",
+      title: "وكلاء ذكاء اصطناعي ينجزون مهام أعمالك",
+      desc: "وكلاء يتصلون ببياناتك، ويخدمون عملاءك، ويؤتمتون المهام المتكررة.",
       capabilities: [
         {
           title: "وكلاء ذكاء اصطناعي ذاتيون (AI Agents)",
@@ -296,8 +296,8 @@ export const translations: Record<"en" | "ar", Translation> = {
     },
     webDevSection: {
       badge: "Full-Stack Software & Web Engineering",
-      title: "Resilient production systems, not just landing pages",
-      desc: "From sub-50ms user interfaces to hardened relational databases and secure cloud infrastructure, we build complete software systems designed to scale.",
+      title: "Web platforms and business systems",
+      desc: "From online stores to databases, we build secure, scalable software.",
       cards: [
         {
           title: "Bespoke E-Commerce Platforms",
@@ -323,8 +323,8 @@ export const translations: Record<"en" | "ar", Translation> = {
     },
     aiSection: {
       badge: "Agentic Systems & AI Architecture",
-      title: "Autonomous AI agents that execute real business operations",
-      desc: "We move beyond superficial chatbots. We engineer autonomous agents that perceive context, query databases, make decisions, and execute multi-step workflows.",
+      title: "AI agents that handle real business tasks",
+      desc: "Agents that connect to your data, support customers, and automate routine work.",
       capabilities: [
         {
           title: "Autonomous AI Agents",
