@@ -61,11 +61,11 @@ export function Portfolio({ lang }: PortfolioProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+        <div className="max-w-3xl mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
             {t.partners.title}
           </h2>
-          <p className="text-slate-300 mt-4 text-base sm:text-lg leading-relaxed font-normal">
+          <p className="text-slate-300 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
             {t.partners.desc}
           </p>
         </div>
@@ -75,7 +75,9 @@ export function Portfolio({ lang }: PortfolioProps) {
           {projects.map((project, idx) => (
             <div
               key={idx}
-              className="rounded-2xl border border-white/[0.08] bg-slate-900/50 hover:border-sky-500/30 hover:bg-slate-900/80 p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 group shadow-lg"
+              className={`rounded-2xl border border-white/[0.08] bg-slate-900/50 hover:border-sky-500/30 hover:bg-slate-900/80 p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 group shadow-lg ${
+                idx === 2 ? "md:col-span-2 lg:col-span-1 md:max-w-xl md:mx-auto lg:max-w-none w-full" : ""
+              }`}
             >
               <div>
                 {/* Top Media Asset Container (Uniform Aspect & Shape) */}
@@ -135,13 +137,13 @@ export function Portfolio({ lang }: PortfolioProps) {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-sky-400 hover:bg-sky-300 active:scale-[0.99] text-slate-950 font-semibold text-xs sm:text-sm transition-all duration-200 shadow-md shadow-sky-400/20 hover:shadow-sky-400/30 cursor-pointer"
+                    className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-sky-400 hover:bg-sky-300 active:scale-[0.99] text-slate-950 font-semibold text-xs sm:text-sm transition-all duration-200 shadow-md shadow-sky-400/20 hover:shadow-sky-400/30 cursor-pointer min-h-[44px]"
                   >
                     <span>{lang === "ar" ? "زيارة الموقع المباشر" : "Visit Live Platform"}</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 ) : (
-                  <div className="w-full flex items-center justify-between py-2.5 px-4 rounded-xl bg-white/[0.03] border border-white/[0.06] text-slate-400">
+                  <div className="w-full flex items-center justify-between py-2.5 px-4 rounded-xl bg-white/[0.03] border border-white/[0.06] text-slate-400 min-h-[44px] flex-wrap gap-2">
                     <span className="text-xs font-mono text-slate-400">
                       {lang === "ar" ? "نظام أعمال داخلي" : "Internal Enterprise Platform"}
                     </span>

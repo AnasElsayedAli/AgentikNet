@@ -63,11 +63,11 @@ export function AboutUs({ lang }: AboutUsProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+        <div className="max-w-3xl mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
             {t.about.title}
           </h2>
-          <p className="text-slate-300 mt-4 text-base sm:text-lg leading-relaxed font-normal">
+          <p className="text-slate-300 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
             {t.about.desc}
           </p>
         </div>
@@ -119,7 +119,7 @@ export function AboutUs({ lang }: AboutUsProps) {
               </div>
 
               {/* Direct WhatsApp Contact */}
-              <div className="pt-3.5 border-t border-white/[0.08] flex items-center justify-between gap-2 text-xs">
+              <div className="pt-3.5 border-t border-white/[0.08] flex items-center justify-between flex-wrap gap-2 text-xs">
                 {member.whatsappNumber ? (
                   <a
                     href={`https://wa.me/${member.whatsappNumber}?text=${encodeURIComponent(
@@ -129,7 +129,7 @@ export function AboutUs({ lang }: AboutUsProps) {
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-medium transition-colors"
+                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-xs font-medium transition-colors w-full sm:w-auto min-h-[40px] cursor-pointer"
                   >
                     <MessageCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                     <span>{lang === "ar" ? `واتساب: ${member.displayPhone}` : `WhatsApp: ${member.displayPhone}`}</span>

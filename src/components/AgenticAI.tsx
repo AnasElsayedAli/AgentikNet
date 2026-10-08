@@ -114,12 +114,12 @@ export function AgenticAI({ lang }: AgenticAIProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 sm:gap-8 mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 sm:gap-8 mb-8 sm:mb-10">
           <div className="max-w-3xl">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
               {t.aiSection.title}
             </h2>
-            <p className="text-slate-300 mt-4 text-base sm:text-lg leading-relaxed font-normal">
+            <p className="text-slate-300 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
               {t.aiSection.desc}
             </p>
           </div>
@@ -139,11 +139,11 @@ export function AgenticAI({ lang }: AgenticAIProps) {
         </div>
 
         {/* 4 Core AI Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-7 mb-10">
           {AGENT_CAPABILITIES.map((cap, idx) => (
             <div
               key={idx}
-              className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-7 md:p-8 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-300"
+              className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-6 lg:p-7 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-300"
             >
               <div>
                 <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5">
@@ -188,12 +188,12 @@ export function AgenticAI({ lang }: AgenticAIProps) {
             </div>
 
             {/* Workflow selector tabs */}
-            <div className="flex items-center gap-1 p-1 bg-slate-900 rounded-lg border border-white/[0.08] shrink-0 overflow-x-auto max-w-full">
+            <div className="flex items-center gap-1.5 p-1 bg-slate-900 rounded-lg border border-white/[0.08] shrink-0 overflow-x-auto max-w-full scrollbar-none">
               {SIMULATION_FLOWS.map((flow, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveWorkflow(idx)}
-                  className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all cursor-pointer ${
+                  className={`px-3.5 py-2 text-xs font-medium rounded-md transition-all cursor-pointer whitespace-nowrap min-h-[38px] flex items-center justify-center ${
                     activeWorkflow === idx
                       ? "bg-emerald-500 text-slate-950 font-semibold shadow-sm"
                       : "text-slate-400 hover:text-white"
@@ -205,10 +205,10 @@ export function AgenticAI({ lang }: AgenticAIProps) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             
             {/* Left: Input Prompt & Reasoning chain */}
-            <div className="lg:col-span-6 space-y-5">
+            <div className="md:col-span-1 lg:col-span-6 space-y-5 flex flex-col justify-between">
               <div>
                 <span className="text-xs text-slate-400 uppercase tracking-wider block mb-2 font-medium">
                   {lang === "ar" ? "الحدث الوارد (Inbound Trigger)" : "Inbound Operational Event"}
@@ -237,7 +237,7 @@ export function AgenticAI({ lang }: AgenticAIProps) {
             </div>
 
             {/* Right: Automated Output & Proof */}
-            <div className="lg:col-span-6 flex flex-col justify-between h-full bg-slate-900/60 p-6 rounded-lg border border-emerald-500/20">
+            <div className="md:col-span-1 lg:col-span-6 flex flex-col justify-between h-full bg-slate-900/60 p-4 sm:p-6 rounded-lg border border-emerald-500/20">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xs text-emerald-400 uppercase tracking-wider font-medium">

@@ -62,4 +62,13 @@
   .scrollbar-discreet::-webkit-scrollbar-thumb:hover {
     background: rgba(56, 189, 248, 0.4);
   }
+
+  /* Hide scrollbar for smooth horizontal touch swipe on mobile */
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

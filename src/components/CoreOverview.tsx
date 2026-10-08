@@ -72,11 +72,11 @@ export function CoreOverview({ lang, onNavigateTo }: CoreOverviewProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+        <div className="max-w-3xl mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
             {content.title}
           </h2>
-          <p className="text-slate-300 mt-4 text-base sm:text-lg leading-relaxed font-normal">
+          <p className="text-slate-300 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
             {content.desc}
           </p>
         </div>

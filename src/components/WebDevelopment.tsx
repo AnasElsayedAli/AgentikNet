@@ -67,12 +67,12 @@ export function WebDevelopment({ lang }: WebDevelopmentProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 sm:gap-8 mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 sm:gap-8 mb-8 sm:mb-10">
           <div className="max-w-3xl">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
               {t.webDevSection.title}
             </h2>
-            <p className="text-slate-300 mt-4 text-base sm:text-lg leading-relaxed font-normal">
+            <p className="text-slate-300 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-relaxed font-normal">
               {t.webDevSection.desc}
             </p>
           </div>
@@ -92,11 +92,11 @@ export function WebDevelopment({ lang }: WebDevelopmentProps) {
         </div>
 
         {/* 4-Card Production Capability Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-7">
           {CAPABILITY_AREAS.map((item) => (
             <div
               key={item.id}
-              className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-7 md:p-8 flex flex-col justify-between hover:border-sky-500/30 transition-all duration-300"
+              className="rounded-xl border border-white/[0.08] bg-slate-900/40 p-5 sm:p-6 lg:p-7 flex flex-col justify-between hover:border-sky-500/30 transition-all duration-300"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">

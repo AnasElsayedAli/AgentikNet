@@ -105,11 +105,11 @@ export function CTA({ lang, isFormOpen, onOpenForm, onCloseForm, serviceTypeDefa
           {/* Left Column: Direct Founder Contacts & Primary WhatsApp Hotline */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight mb-4">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight mb-4">
                 {t.cta.title}
               </h2>
 
-              <p className="text-base sm:text-lg text-slate-300 font-sans leading-relaxed mb-6 max-w-xl font-normal">
+              <p className="text-sm sm:text-base md:text-lg text-slate-300 font-sans leading-relaxed mb-6 max-w-xl font-normal">
                 {t.cta.subtitle}
               </p>
 

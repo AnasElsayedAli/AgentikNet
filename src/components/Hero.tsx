@@ -70,7 +70,7 @@ export function Hero({ lang, onOpenConsultation, onExploreSolutions }: HeroProps
             {/* Confident Headline */}
             <h1
               id="hero-title"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-extrabold text-white tracking-tight leading-[1.15] mb-5 sm:mb-6"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-display font-extrabold text-white tracking-tight leading-[1.2] mb-5 sm:mb-6"
             >
               {t.hero.titleFirst}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-300 to-blue-400">
@@ -111,30 +111,30 @@ export function Hero({ lang, onOpenConsultation, onExploreSolutions }: HeroProps
             </div>
 
             {/* Quantitative Proof Metrics Strip (Clean, unboxed) */}
-            <div className="w-full pt-6 sm:pt-8 border-t border-white/[0.08] grid grid-cols-3 gap-2 sm:gap-6">
+            <div className="w-full pt-6 sm:pt-8 border-t border-white/[0.08] grid grid-cols-3 gap-2 sm:gap-4 md:gap-6">
               <div>
-                <div className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white tabular-nums tracking-tight">
+                <div className="text-lg sm:text-2xl md:text-3xl font-display font-bold text-white tabular-nums tracking-tight">
                   {t.hero.stat1Number}
                 </div>
-                <div className="text-[11px] sm:text-xs text-slate-400 mt-1 leading-snug">
+                <div className="text-[10px] sm:text-xs text-slate-400 mt-1 leading-snug">
                   {t.hero.stat1Label}
                 </div>
               </div>
 
               <div>
-                <div className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white tabular-nums tracking-tight">
+                <div className="text-lg sm:text-2xl md:text-3xl font-display font-bold text-white tabular-nums tracking-tight">
                   {t.hero.stat2Number}
                 </div>
-                <div className="text-[11px] sm:text-xs text-slate-400 mt-1 leading-snug">
+                <div className="text-[10px] sm:text-xs text-slate-400 mt-1 leading-snug">
                   {t.hero.stat2Label}
                 </div>
               </div>
 
               <div>
-                <div className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white tabular-nums tracking-tight">
+                <div className="text-lg sm:text-2xl md:text-3xl font-display font-bold text-white tabular-nums tracking-tight">
                   {t.hero.stat3Number || "5+"}
                 </div>
-                <div className="text-[11px] sm:text-xs text-slate-400 mt-1 leading-snug">
+                <div className="text-[10px] sm:text-xs text-slate-400 mt-1 leading-snug">
                   {t.hero.stat3Label || (lang === "ar" ? "منصات مكتملة" : "Delivered Platforms")}
                 </div>
               </div>
@@ -143,7 +143,7 @@ export function Hero({ lang, onOpenConsultation, onExploreSolutions }: HeroProps
           </div>
 
           {/* Right Column: Live Dual-Core Architecture Preview */}
-          <div className="lg:col-span-5 w-full">
+          <div className="lg:col-span-5 w-full max-w-xl mx-auto lg:max-w-none">
             <div className="rounded-xl border border-white/[0.1] bg-slate-950/80 backdrop-blur-md shadow-2xl p-4 sm:p-6 md:p-7 relative overflow-hidden">
               
               {/* Top Bar with Interactive Tab Switchers */}

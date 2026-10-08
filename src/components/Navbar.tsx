@@ -135,15 +135,17 @@ export function Navbar({ lang, onLanguageChange, onOpenConsultation, onNavigateT
           <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={() => onLanguageChange(lang === "ar" ? "en" : "ar")}
-              className="px-2.5 py-1.5 text-xs font-medium text-slate-300 border border-white/[0.1] rounded-lg hover:text-white"
+              className="min-h-[42px] px-3 py-2 text-xs font-semibold text-slate-200 border border-white/[0.12] rounded-lg hover:text-white bg-slate-900/60 active:bg-slate-800 transition-colors flex items-center justify-center cursor-pointer"
               id="lang-switcher-mobile"
+              aria-label={lang === "ar" ? "Switch to English" : "التبديل إلى العربية"}
             >
-              {lang === "ar" ? "EN" : "عربي"}
+              <Globe className="w-3.5 h-3.5 me-1.5 text-sky-400" />
+              <span>{lang === "ar" ? "EN" : "عربي"}</span>
             </button>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-slate-300 hover:text-white cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg border border-white/[0.08] bg-slate-900/60"
+              className="p-2.5 text-slate-300 hover:text-white cursor-pointer min-w-[42px] min-h-[42px] flex items-center justify-center rounded-lg border border-white/[0.12] bg-slate-900/80 active:bg-slate-800 transition-colors"
               id="mobile-nav-toggle"
               aria-expanded={isOpen}
               aria-label="Toggle navigation menu"
