@@ -71,14 +71,9 @@ export function Navbar({ lang, onLanguageChange, onOpenConsultation, onNavigateT
             <div className="shrink-0 transition-transform duration-300 group-hover:scale-105">
               <Logo size={36} />
             </div>
-            <div className="flex flex-col">
-              <span className="font-display font-bold text-lg sm:text-xl text-white tracking-tight" dir="ltr">
-                Agentik<span className="text-sky-400">Net</span>
-              </span>
-              <span className="text-[10px] text-slate-400 font-mono tracking-wider uppercase -mt-0.5 hidden sm:block">
-                Software & AI Studio
-              </span>
-            </div>
+            <span className="font-display font-bold text-lg sm:text-xl text-white tracking-tight" dir="ltr">
+              Agentik<span className="text-sky-400">Net</span>
+            </span>
           </button>
 
           {/* Desktop Navigation Links */}
